@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import '../globals.css';
 import { Great_Vibes } from 'next/font/google';
 
@@ -15,9 +16,28 @@ export default function Home() {
                 Jum'at, 6 Desember 2024
             </p>
         </div>
-        {/* <div className="flex items-center justify-center"> */}
-            <div className="flex sm:flex-row flex-col w-full gap-8">
-                <form className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-md">
+        <div className='flex flex-col'>
+            <div className='flex w-full items-center justify-between'>
+                <div className='flex items-center justify-center h-52 w-40 relative'>
+                    <Image alt='kukuh-1' src={'/1.jpeg'} fill sizes='1' priority className='object-cover border-2 border-white'/>
+                </div>
+                <div className='w-1 border-2 border-white h-52 items-center justify-center flex'>
+                    <div className='flex rounded-full bg-white p-4'/>
+                </div>
+                <div className='flex items-center justify-center h-52 w-40'>description</div>
+            </div>
+            <div className='flex w-full items-center justify-between'>
+                <div className='flex items-center justify-center h-52 w-40'>description</div>
+                <div className='w-1 border-2 border-white h-52 items-center justify-center flex'>
+                    <div className='flex rounded-full bg-white p-4'/>
+                </div>
+                <div className='flex items-center justify-center h-52 w-40 relative'>
+                    <Image alt='kukuh-2' src={'/2.jpeg'} fill sizes='1' priority className='object-cover border-2 border-white'/>
+                </div>
+            </div>
+        </div>
+        <div className="flex sm:flex-row flex-col w-full gap-5">
+            <form className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-md">
                 <h3 className="font-semibold text-gray-700">Tulis Ucapan Disini</h3>
                 <div>
                     <label className="block text-left text-gray-700 text-sm font-medium mb-2">Nama :</label>
@@ -30,13 +50,12 @@ export default function Home() {
                 </div>
 
                 <button type="submit" className="w-full bg-blue-400 text-white py-2 rounded-md hover:bg-blue-900 transition duration-300">Kirim</button>
-                </form>
+            </form>
 
-                <div className="mx-auto flex-auto sm:w-1/2 w-full p-4 bg-white shadow-md rounded-md ">
-                    <h3 className="font-semibold text-gray-700 mb-4">Ucapan Selamat yang Diterima</h3>
-                </div>
+            <div className="mx-auto flex-auto sm:w-1/2 w-full p-4 bg-white shadow-md rounded-md ">
+                <h3 className="font-semibold text-gray-700 mb-4">Ucapan Selamat yang Diterima</h3>
             </div>
-        {/* </div> */}
+        </div>
     </div>
   );
 }
