@@ -1,7 +1,7 @@
-import { Courgette } from 'next/font/google'
+import { Playfair_Display } from 'next/font/google'
 import './globals.css'
 
-const inter = Courgette({ weight: ['400'], subsets: ['latin'] })
+const inter = Playfair_Display({ weight: ['400','500','600','700','800','900'], subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
