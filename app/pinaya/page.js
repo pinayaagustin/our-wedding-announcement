@@ -13,9 +13,9 @@ export default function Home() {
                 dari teman-teman sekalian untuk pernikahan kami :
             </p>
 
-            <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 indent-14 " + great.className}>Kukuh Iman Damaryanto</p>
+            <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>Kukuh Iman Damaryanto</p>
             <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>&</p>
-            <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 indent-32 " + great.className}>Pinaya Agustin</p>
+            <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>Pinaya Agustin</p>
 
             <p className="sm:text-lg text-sm text-gray-700 text-center mb-6 mt-16">yang akan dilaksanakan pada :</p>
             <p className="sm:text-2xl text-xl font-bold text-blue-900 text-center mb-32">
