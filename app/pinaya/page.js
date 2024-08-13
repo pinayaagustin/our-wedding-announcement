@@ -6,12 +6,19 @@ const great = Great_Vibes({weight:['400'],subsets:['latin']})
 export default function Home() {
   return (
     <div className="container mx-auto px-6 py-10 flex flex-col gap-20">
-        <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>Hari Bahagia Kami Segera Tiba!</p>
+        <p className={"sm:text-5xl text-2xl font-extrabold mb-32 mt-10 text-blue-900 text-center " + great.className}> ~ Hari Bahagia Kami Segera Tiba! ~</p>
         <div className='flex flex-col gap-5'>
-            <p className="sm:text-lg text-sm text-gray-700 text-justify">
-                Dengan penuh cinta dan sukacita, kami ingin memberikan kabar bahagia yaitu akan dilangsungkannya pernikahan kami pada:
+            <p className="sm:text-lg text-sm text-gray-700 text-justify mb-20">
+                Dengan penuh cinta dan sukacita, kami bermaksud mambagikan kabar bahagia ini sekaligus memohon doa dan restu
+                dari teman-teman sekalian untuk pernikahan kami :
             </p>
-            <p className="sm:text-2xl text-xl font-bold text-blue-900 text-center">
+
+            <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 indent-14 " + great.className}>Kukuh Iman Damaryanto</p>
+            <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>&</p>
+            <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 indent-32 " + great.className}>Pinaya Agustin</p>
+
+            <p className="sm:text-lg text-sm text-gray-700 text-center mb-6 mt-16">yang akan dilaksanakan pada :</p>
+            <p className="sm:text-2xl text-xl font-bold text-blue-900 text-center mb-32">
                 Jum'at, 6 Desember 2024
             </p>
         </div>
