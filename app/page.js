@@ -16,8 +16,9 @@ export default function Home() {
         Jum'at, 6 Desember 2024
       </p>
 
-      <div className="max-w-lg mx-auto flex">
-        <form className="space-y-4">
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="flex w-full max-w-4xl gap-8">
+        <form className="space-y-4 w-1/2 p-4 bg-white shadow-md rounded-md">
         <h3 className="font-semibold text-gray-700 mb-4">Tulis Disini</h3>
           <div>
             <label className="block text-left text-gray-700 text-sm font-medium mb-2">Nama :</label>
@@ -32,8 +33,11 @@ export default function Home() {
           <button type="submit" className="w-full bg-blue-400 text-white py-2 rounded-md hover:bg-blue-900 transition duration-300">Kirim</button>
         </form>
 
-        <div>ini nanti isi ucapan yang udah dikirim</div>
+        <div className="max-w-lg mx-auto flex-auto w-1/2 p-4 bg-white shadow-md rounded-md">
+          <h3 className="font-semibold text-gray-700 mb-4">Ucapan Selamat yang Diterima</h3>
+          </div>
       </div>
+    </div>
     </div>
   );
 }
