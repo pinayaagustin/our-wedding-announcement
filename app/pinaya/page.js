@@ -40,7 +40,7 @@ export default function Home() {
         </div>
 
             <p className="text-sm text-gray-700 text-center" >yang akan dilaksanakan pada :</p>
-            <p className="text-2xl font-bold text-blue-900 text-center ">Jum'at, 6 Desember 2024</p>
+            <p className="text-2xl font-semibold text-blue-900 text-center ">Jum'at, 6 Desember 2024</p>
         
         
         {/* <div className="flex items-center justify-center"> */}
