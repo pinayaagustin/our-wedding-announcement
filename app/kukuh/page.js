@@ -1,6 +1,6 @@
+import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
 import '../globals.css';
-import { Great_Vibes } from 'next/font/google';
 
 const great = Great_Vibes({weight:['400'],subsets:['latin']})
 const story = [
@@ -24,7 +24,7 @@ export default function Home() {
         <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>Hari Bahagia Kami Segera Tiba!</p>
         <div className='flex flex-col gap-12 text-gray-700 items-center px-6'>
             <p className="sm:text-lg text-sm text-justify">
-            Dengan penuh cinta dan sukacita, kami bermaksud mambagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami :
+            Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami :
             </p>
             <div className='flex flex-col w-[70%]'>
                 <p className={"sm:text-6xl text-2xl font-extrabold text-blue-900 text-left " + great.className}>Kukuh Iman Damaryanto</p>

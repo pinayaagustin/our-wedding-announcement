@@ -5,21 +5,44 @@ const great = Great_Vibes({weight:['400'],subsets:['latin']})
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-6 py-10 flex flex-col gap-20">
-        <p className={"sm:text-5xl text-2xl font-extrabold mb-10 mt-10 text-blue-900 text-center " + great.className}> ~ Hari Bahagia Kami Segera Tiba! ~</p>
-        <div className='flex flex-col gap-5'>
-            <p className="sm:text-lg text-sm text-gray-700 text-justify mb-20">
-                Dengan penuh cinta dan sukacita, kami bermaksud mambagikan kabar bahagia ini sekaligus memohon doa dan restu
+    <div className="container mx-auto px-6 py-10 flex flex-col gap-10">
+        
+        <div className='flex flex-col gap-10 mt-12'>
+            <p className="sm:text-lg text-sm text-gray-700 text-justify">
+                Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu
                 dari teman-teman sekalian untuk pernikahan kami :
             </p>
-
-            <p className={"sm:text-6xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>Kukuh Iman Damaryanto</p>
-            <p className={"sm:text-6xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>&</p>
-            <p className={"sm:text-6xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>Pinaya Agustin</p>
-
-            <p className="sm:text-lg text-sm text-gray-700 text-center mb-6 mt-16" >yang akan dilaksanakan pada :</p>
-            <p className="sm:text-3xl text-2xl font-bold text-blue-900 text-center ">Jum'at, 6 Desember 2024</p>
         </div>
+        
+        <div className="flex flex-row justify-between items-center">
+            <div className="w-1/2 p-4">
+            <p className={"sm:text-7xl text-2xl font-extrabold text-blue-900 text-left " + great.className}>
+                Kukuh Iman Damaryanto
+            </p>
+            </div>
+            <div className="w-1/2 p-2 flex justify-center items-center">
+            <img src="/2.jpeg" className="max-w-xs h-auto w-full md:max-w-sm lg:max-w-md rounded-2xl opacity-95" />
+            </div>
+        </div>
+
+            <p className={"sm:text-8xl text-2xl gap-32 font-extrabold text-blue-900 text-center " + great.className}>&</p>
+            
+        <div className="flex flex-row justify-between items-center">
+            <div className="w-1/2 p-2 flex justify-center items-center">
+            <img src="/2.jpeg" className="max-w-xs h-auto w-full md:max-w-sm lg:max-w-md rounded-2xl opacity-95" />
+            </div>    
+            
+            <div className="w-1/2 p-4">
+            <p className={"sm:text-7xl text-2xl font-extrabold text-blue-900 text-right " + great.className}>
+                Pinaya Agustin
+            </p>
+            </div>
+        </div>
+
+            <p className="text-sm text-gray-700 text-center" >yang akan dilaksanakan pada :</p>
+            <p className="text-2xl font-bold text-blue-900 text-center ">Jum'at, 6 Desember 2024</p>
+        
+        
         {/* <div className="flex items-center justify-center"> */}
             <div className="flex sm:flex-row flex-col w-full gap-8 mt-20">
                 <form className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl">
