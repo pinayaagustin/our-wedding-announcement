@@ -1,4 +1,6 @@
 'use client'
+import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Great_Vibes } from 'next/font/google';
 import { useEffect, useRef, useState } from 'react';
 import '../globals.css';
@@ -37,8 +39,8 @@ export default function Home() {
   return (
     <div className="container mx-auto px-6 py-10 flex flex-col gap-10">
         <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
-        <button onClick={toggleAudio} className="bg-blue-500 text-white py-2 px-4 rounded">
-          {isPlaying ? 'Pause' : 'Play'} Music
+        <button onClick={toggleAudio} className="absolute top-4 right-4 bg-blue-300 hover:bg-blue-900 text-white p-3 rounded-full">
+          <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" />
         </button>
       
     
