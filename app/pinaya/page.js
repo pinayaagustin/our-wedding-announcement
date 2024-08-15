@@ -1,11 +1,26 @@
 'use client'
 import { Great_Vibes } from 'next/font/google';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../globals.css';
 
 const great = Great_Vibes({weight:['400'],subsets:['latin']})
 
 export default function Home() {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(null);
+
+    useEffect(() => {
+        if (isPlaying && audioRef.current) {
+            audioRef.current.play();
+        } else if (audioRef.current) {
+            audioRef.current.pause();
+        }
+    }, [isPlaying]);
+
+    const toggleAudio = () => {
+        setIsPlaying(!isPlaying);
+    };
+
     const [messages, setMessages] = useState([]);
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
@@ -21,6 +36,12 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-6 py-10 flex flex-col gap-10">
+        <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
+        <button onClick={toggleAudio} className="bg-blue-500 text-white py-2 px-4 rounded">
+          {isPlaying ? 'Pause' : 'Play'} Music
+        </button>
+      
+    
         <div className='flex flex-col gap-10 mt-12'>
             <p className="sm:text-lg text-sm text-gray-700 text-justify">
                 Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu
