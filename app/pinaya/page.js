@@ -91,7 +91,7 @@ export default function Home() {
         </div>
         {/* <div className="flex items-center justify-center"> */}
             <div className="flex sm:flex-row flex-col w-full gap-8 mt-20">
-                <form onSubmit={handleSubmit} className="space-y-4 sm:w-1/2 w-full p-4 bg-orange-100 shadow-md rounded-2xl">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl">
                 <h3 className="text-center font-semibold text-gray-700">Tulis Ucapan Disini</h3>
                 <div>
                     <label className="block text-left text-gray-700 text-sm font-medium mb-2">Nama :</label>
@@ -116,7 +116,7 @@ export default function Home() {
                 </div>
                 </form>
 
-                <div className="mx-auto flex-auto sm:w-1/2 w-full p-4 bg-orange-100 shadow-md rounded-2xl overflow-y-auto max-h-96">
+                <div className="mx-auto flex-auto sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl overflow-y-auto max-h-96">
                     <h3 className="text-center font-semibold text-gray-700 mb-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</h3>
                     <div className="space-y-4">
                         {messages.map((msg, index) => (
