@@ -7,7 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {}
+      colors: {
+        'primary': '#121481',
+        'secondary': '#FFEAE3',
+        'accent-1': '#FFCBCB',
+        'accent-2': '#FFB1B1',
+      },
     },
   },
   plugins: [],

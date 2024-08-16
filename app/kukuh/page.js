@@ -20,16 +20,16 @@ const story = [
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-6 py-10 flex flex-col gap-20">
-        {/* <p className={"sm:text-5xl text-2xl font-extrabold text-blue-900 text-center " + great.className}>Hari Bahagia Kami Segera Tiba!</p> */}
-        <div className='flex flex-col gap-12 text-gray-700 items-center px-6'>
+    <div className="container mx-auto px-6 py-10 flex flex-col gap-20 text-primary">
+        {/* <p className={"sm:text-5xl text-2xl font-extrabold  text-center " + great.className}>Hari Bahagia Kami Segera Tiba!</p> */}
+        <div className='flex flex-col gap-12  items-center px-6'>
             <p className="sm:text-lg text-sm text-justify">
             Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami :
             </p>
             <div className='flex flex-col w-full gap-10'>
                 <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                     <div className="w-1/2 p-4">
-                        <p className={"sm:text-7xl text-2xl font-extrabold text-blue-900 text-left " + great.className}>
+                        <p className={"sm:text-7xl text-2xl font-extrabold  text-left " + great.className}>
                             Kukuh Iman Damaryanto
                         </p>
                     </div>
@@ -37,13 +37,13 @@ export default function Home() {
                         <Image src='/2.jpeg' fill className="rounded-full object-cover" />
                     </div>
                 </div>
-                <p className={"sm:text-8xl text-2xl gap-32 font-extrabold text-blue-900 text-center " + great.className}>&</p>  
+                <p className={"sm:text-8xl text-2xl gap-32 font-extrabold  text-center " + great.className}>&</p>  
                 <div className="flex flex-row justify-center items-center w-full mx-auto gap-2">
                     <div className="w-1/2 p-4 relative aspect-[3/4]">
                         <Image src='/2.jpeg' fill className="rounded-full object-cover" />
                     </div>
                     <div className="w-1/2 p-4">
-                        <p className={"sm:text-7xl text-2xl font-extrabold text-blue-900 text-right " + great.className}>
+                        <p className={"sm:text-7xl text-2xl font-extrabold text-right " + great.className}>
                             Pinaya Agustin
                         </p>
                     </div>
@@ -53,7 +53,7 @@ export default function Home() {
                 <p className="sm:text-lg text-sm text-center" >
                     yang akan dilaksanakan pada :
                 </p>
-                <p className="sm:text-2xl text-xl font-bold text-blue-900 text-center">
+                <p className="sm:text-2xl text-xl font-bold  text-center">
                     Jum'at, 6 Desember 2024
                 </p>
             </div>
@@ -65,7 +65,7 @@ export default function Home() {
                     return (
                         <div key={data.id} className='flex w-full items-center justify-between gap-3'>
                             <div className='flex items-center justify-center w-full aspect-[4/4] relative'>
-                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-lg'/>
+                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full'/>
                             </div>
                             <div className='flex items-center justify-center w-6'>
                                 <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
@@ -107,7 +107,7 @@ export default function Home() {
                                 </svg>
                             </div>
                             <div className='flex items-center justify-center w-full aspect-[4/4] relative'>
-                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-lg'/>
+                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full'/>
                             </div>
                         </div>
                     )
@@ -122,24 +122,24 @@ export default function Home() {
         </p>
         <div className="flex sm:flex-row flex-col w-full gap-8 mt-20">
             <form className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl">
-                <h3 className="text-center font-semibold text-gray-700">Tulis Ucapan Disini</h3>
+                <h3 className="text-center font-semibold ">Tulis Ucapan Disini</h3>
                 <div>
-                    <label className="block text-left text-gray-700 text-sm font-medium mb-2">Nama :</label>
+                    <label className="block text-left  text-sm font-medium mb-2">Nama :</label>
                     <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Nama Anda" required/>
                 </div>
 
                 <div>
-                    <label className="block text-left text-gray-700 text-sm font-medium mb-2">Ucapan Selamat :</label>
+                    <label className="block text-left  text-sm font-medium mb-2">Ucapan Selamat :</label>
                     <textarea className="w-full px-4 py-4 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tulis ucapan selamat Anda disini ..." required></textarea>
                 </div>
 
                 <div className="flex justify-center">
-                    <button type="submit" className="text-center bg-slate-200 text-gray-700 py-2 px-4 rounded-2xl hover:bg-slate-400 transition duration-300">Kirim</button>
+                    <button type="submit" className="text-center bg-slate-200  py-2 px-4 rounded-2xl hover:bg-slate-400 transition duration-300">Kirim</button>
                 </div>
             </form>
 
             <div className="mx-auto flex-auto sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl ">
-                <h3 className="text-center font-semibold text-gray-700 mb-4">Ucapan Selamat yang Diterima</h3>
+                <h3 className="text-center font-semibold  mb-4">Ucapan Selamat yang Diterima</h3>
             </div>
         </div>
     </div>
