@@ -85,7 +85,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div className="bg-[#ffeae3]">
+        <div className="bg-[#ffeae3] h-svh">
             <p className="text-lg text-[#121481] text-center mt-10" >yang akan dilaksanakan pada :</p>
             <p className="text-2xl font-bold text-[121481] text-center ">Jum'at, 6 Desember 2024</p>
         
@@ -99,8 +99,8 @@ export default function Home() {
         </div>
         </div>
         {/* <div className="flex items-center justify-center"> */}
-            <div className="flex sm:flex-row flex-col w-full p-10 gap-8 mt-20 bg-[#0a2858]">
-                <form onSubmit={handleSubmit} className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl">
+            <div className="flex sm:flex-row flex-col w-full h-svh p-10 gap-8 mt-20 bg-[#0a2858]">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl relative custom-after">
                 <h3 className="text-center font-semibold text-[#121481]">Tulis Ucapan Disini</h3>
                 <div>
                     <label className="block text-left text-[#121481] text-sm font-medium mb-2">Nama :</label>
