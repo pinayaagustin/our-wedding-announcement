@@ -12,6 +12,7 @@ module.exports = {
         'secondary': '#FFEAE3',
         'accent-1': '#FFCBCB',
         'accent-2': '#FFB1B1',
+        'charcoal':'#464646'
       },
     },
   },

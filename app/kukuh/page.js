@@ -1,6 +1,10 @@
+'use client'
 import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
 import '../globals.css';
+import '../envelope.css';
+import { useEffect, useRef, useState } from 'react';
+import { Howl } from 'howler';
 
 const great = Great_Vibes({weight:['400'],subsets:['latin']})
 const story = [
@@ -18,32 +22,73 @@ const story = [
     }
 ];
 
+function Envelope({open}){
+    return (
+        <div className={open ? "letter-image open" : "letter-image"} >
+            <div className="animated-mail">
+                <div className="back-fold"></div>
+                <div className="letter text-xs text-charcoal">
+                
+                </div>
+                <div className="top-fold"></div>
+                <div className="body"></div>
+                <div className="left-fold"></div>
+            </div>
+            {/* <div className="shadow"></div> */}
+        </div>
+    );
+}
+
+function FirstPage() {
+    const [open, setOpen] = useState(false);
+
+    return (
+        <div className='flex flex-col items-center justify-start w-full h-svh pt-24 text-primary bg-white/80' onClick={e => setOpen(!open)}>
+            <p className={great.className + ' sm:text-5xl text-3xl text-center w-[80%]' } > Hari Bahagia Kami Segera Tiba! </p>
+            <Envelope open={open}/>
+            <p className='absolute bottom-24 text-charcoal text-sm'> Klik untuk melanjutkan</p>
+        </div>
+    )
+}
+
 export default function Home() {
+
+    // useEffect(() => {
+    //     const sound = new Howl({
+    //       src: ['/music.mp3'],
+    //       autoplay: true,
+    //       loop: true,
+    //     });
+    
+    //     sound.play();
+    //   }, []);
+    
   return (
+    <div className=' h-svh relative'>
+    {/* <FirstPage/> */}
     <div className="container mx-auto px-6 py-10 flex flex-col gap-20 text-primary">
-        {/* <p className={"sm:text-5xl text-2xl font-extrabold  text-center " + great.className}>Hari Bahagia Kami Segera Tiba!</p> */}
-        <div className='flex flex-col gap-12  items-center px-6'>
-            <p className="sm:text-lg text-sm text-justify">
-            Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami :
+        <div className='flex flex-col gap-16  items-center px-6'>
+            <p className="sm:text-2xl text-sm text-justify text-charcoal">
+            Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami:
             </p>
-            <div className='flex flex-col w-full gap-10'>
+            <div className='flex flex-col w-full gap-4'>
                 <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                     <div className="w-1/2 p-4">
                         <p className={"sm:text-7xl text-2xl font-extrabold  text-left " + great.className}>
                             Kukuh Iman Damaryanto
                         </p>
                     </div>
-                    <div className="w-1/2 p-4 relative aspect-[3/4]">
+                    <div className="w-1/2 sm:w-1/3 p-4 relative aspect-[4/4]">
                         <Image src='/2.jpeg' fill className="rounded-full object-cover" />
                     </div>
                 </div>
                 <p className={"sm:text-8xl text-2xl gap-32 font-extrabold  text-center " + great.className}>&</p>  
-                <div className="flex flex-row justify-center items-center w-full mx-auto gap-2">
-                    <div className="w-1/2 p-4 relative aspect-[3/4]">
+                <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
+                    <div className="w-1/2 sm:w-1/3 p-4 relative aspect-[4/4]">
                         <Image src='/2.jpeg' fill className="rounded-full object-cover" />
                     </div>
                     <div className="w-1/2 p-4">
-                        <p className={"sm:text-7xl text-2xl font-extrabold text-right " + great.className}>
+                        <p className={"sm:text-7xl text-2xl font-extrabold  text-right " + great.className}>
                             Pinaya Agustin
                         </p>
                     </div>
@@ -76,13 +121,13 @@ export default function Home() {
                                         transformOrigin: '538.187px 250px',
                                         transform: 'matrix(0, 1, -1, 0, -0.000015258789, -0.000167846679)'
                                     }}
-                                    className='fill-blue-300'
+                                    className='fill-accent-2'
                                     />
                                 </svg>
                             </div>
                             <div className='flex flex-col items-center justify-center gap-4 w-full'>
-                                <p className='text-lg'>{data.date}</p>
-                                <p className='text-sm text-justify'>{data.description}</p>
+                                <p className='text-lg font-extrabold'>{data.date}</p>
+                                <p className='text-sm text-justify text-charcoal'>{data.description}</p>
                             </div>
                         </div>
                     )
@@ -90,8 +135,8 @@ export default function Home() {
                     return (
                         <div key={data.id} className='flex w-full items-center justify-between gap-3'>
                             <div className='flex flex-col items-center justify-center gap-4 w-full'>
-                                <p className='text-lg'>{data.date}</p>
-                                <p className='text-sm text-justify'>{data.description}</p>
+                                <p className='text-lg font-extrabold'>{data.date}</p>
+                                <p className='text-sm text-justify text-charcoal'>{data.description}</p>
                             </div>
                             <div className='flex items-center justify-center w-6'>
                                 <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
@@ -102,7 +147,7 @@ export default function Home() {
                                         transformOrigin: '538.187px 250px',
                                         transform: 'matrix(0, 1, -1, 0, -0.000015258789, -0.000167846679)'
                                     }}
-                                    className='fill-blue-300'
+                                    className='fill-accent-2'
                                     />
                                 </svg>
                             </div>
@@ -114,13 +159,13 @@ export default function Home() {
                 }
             })}
         </div>
-        <p className="sm:text-lg text-sm text-justify">
+        <p className="sm:text-lg text-sm text-justify text-charcoal">
             Kami memohon maaf karena tidak mengundang teman-teman sekalian. Kami memutuskan untuk mengadakan acara pernikahan kami secara sederhana, 
             yang hanya akan dihadiri oleh keluarga besar dan kerabat dekat kami saja. Meski 
             begitu, kehadiran kalian di hati kami serta doa dan dukungan dari kalian akan selalu
             berarti dan menjadi anugerah yang tak ternilai.
         </p>
-        <div className="flex sm:flex-row flex-col w-full gap-8 mt-20">
+        <div className="flex sm:flex-row flex-col w-full gap-8">
             <form className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl">
                 <h3 className="text-center font-semibold ">Tulis Ucapan Disini</h3>
                 <div>
@@ -142,6 +187,7 @@ export default function Home() {
                 <h3 className="text-center font-semibold  mb-4">Ucapan Selamat yang Diterima</h3>
             </div>
         </div>
+    </div>
     </div>
   );
 }
