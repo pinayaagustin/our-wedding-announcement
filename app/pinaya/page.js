@@ -118,9 +118,9 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div className="bg-[#ffeae3] h-svh">
-            <p className="text-lg text-[#121481] text-center mt-10" >yang akan dilaksanakan pada :</p>
-            <p className="text-2xl font-bold text-[121481] text-center ">Jum'at, 6 Desember 2024</p>
+        <div className="bg-secondary text-primary text-center h-svh py-20">
+            <p className="text-lg mb-10" >yang akan dilaksanakan pada :</p>
+            <p className="text-2xl mb-10 font-bold">Jum'at, 6 Desember 2024</p>
         
         <div className="px-10">
             <p>
@@ -131,7 +131,7 @@ export default function Home() {
             </p>
         </div>
         </div>
-        <div className='h-svh flex flex-col justify-between gap-10 p-10 overflow-hidden bg-primary text-secondary'>
+        <div className='h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
             <p className={'text-3xl text-center ' + great.className}>Our Story</p>
             <div className='flex flex-col overflow-y-auto'>
                 {story.map((data,index) => {
@@ -190,11 +190,11 @@ export default function Home() {
             </div>
         </div>
         {/* <div className="flex items-center justify-center"> */}
-            <div className="flex flex-col w-full p-10 gap-8 mt-20 bg-[#0a2858] items-center">
+            <div className="flex flex-col w-full p-10 gap-10 mt-20 bg-secondary items-center">
                 <form onSubmit={handleSubmit} className="space-y-4 w-[75%] p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
-                <h3 className="text-center font-semibold text-[#121481]">Tulis Ucapan Disini</h3>
+                <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
                 <div>
-                    <label className="block text-left text-[#121481] text-sm font-medium mb-2">Nama :</label>
+                    <label className="block text-left text-primary text-sm font-medium mb-2">Nama :</label>
                     <input 
                         type="text"
                         value={name} 
@@ -203,7 +203,7 @@ export default function Home() {
                 </div>
 
                 <div>
-                    <label className="block text-left text-[#121481] text-sm font-medium mb-2">Ucapan Selamat :</label>
+                    <label className="block text-left text-primary text-sm font-medium mb-2">Ucapan Selamat :</label>
                     <textarea 
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
@@ -212,16 +212,16 @@ export default function Home() {
                 </div>
 
                 <div className="flex justify-center">
-                <button type="submit" className="text-center bg-slate-200 text-[#121481] py-2 px-4 rounded-2xl hover:bg-[#FFB1B1] transition duration-300">Kirim</button>
+                <button type="submit" className="text-center bg-slate-200 text-primary py-2 px-4 rounded-2xl hover:bg-slate-400 transition duration-300">Kirim</button>
                 </div>
                 </form>
 
                 <div className="flex-auto w-[75%] p-4 bg-slate-300 shadow-md rounded-2xl overflow-y-auto h-96"> 
-                    <h3 className="text-center font-semibold text-[#121481] mb-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</h3>
+                    <h3 className="text-center font-semibold text-primary mb-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</h3>
                     <div className="space-y-4">
                         {messages.map((msg, index) => (
                             <div key={index} className="p-4 bg-white rounded-md shadow-sm">
-                                <p className="font-bold text-[#121481]">{msg.name}</p>
+                                <p className="font-bold text-primary">{msg.name}</p>
                                 <p className="text-ray-600">{msg.message}</p>
                             </div>
                         ))}
