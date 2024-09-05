@@ -99,8 +99,8 @@ export default function Home() {
         </div>
         </div>
         {/* <div className="flex items-center justify-center"> */}
-            <div className="flex sm:flex-row flex-col w-full h-svh p-10 gap-8 mt-20 bg-[#0a2858]">
-                <form onSubmit={handleSubmit} className="space-y-4 sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl relative custom-after">
+            <div className="flex flex-col w-full p-10 gap-8 mt-20 bg-[#0a2858] items-center">
+                <form onSubmit={handleSubmit} className="space-y-4 w-[75%] p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                 <h3 className="text-center font-semibold text-[#121481]">Tulis Ucapan Disini</h3>
                 <div>
                     <label className="block text-left text-[#121481] text-sm font-medium mb-2">Nama :</label>
@@ -125,7 +125,7 @@ export default function Home() {
                 </div>
                 </form>
 
-                <div className="mx-auto flex-auto sm:w-1/2 w-full p-4 bg-white shadow-md rounded-2xl overflow-y-auto max-h-96">
+                <div className="flex-auto w-[75%] p-4 bg-slate-300 shadow-md rounded-2xl overflow-y-auto h-96"> 
                     <h3 className="text-center font-semibold text-[#121481] mb-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</h3>
                     <div className="space-y-4">
                         {messages.map((msg, index) => (
@@ -138,7 +138,6 @@ export default function Home() {
                 </div>
 
             </div>
-            <div className="w-full h-svh">lalallaa</div>
         {/* </div> */}
     </div>
   );
