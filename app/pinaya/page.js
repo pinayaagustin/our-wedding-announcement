@@ -97,7 +97,7 @@ export default function Home() {
             <div className='flex flex-col w-full gap-4'>
                 <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                     <div className="w-1/2 p-4">
-                        <p className={"sm:text-7xl text-2xl font-extrabold  text-left " + great.className}>
+                        <p className={"sm:text-5xl text-3xl font-extrabold  text-left " + great.className}>
                             Kukuh Iman Damaryanto
                         </p>
                     </div>
@@ -111,25 +111,25 @@ export default function Home() {
                         <Image src='/2.jpeg' fill className="rounded-full object-cover" />
                     </div>
                     <div className="w-1/2 p-4">
-                        <p className={"sm:text-7xl text-2xl font-extrabold  text-right " + great.className}>
+                        <p className={"sm:text-5xl text-3xl font-extrabold  text-right " + great.className}>
                             Pinaya Agustin
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div className="bg-secondary text-primary text-center h-svh py-20">
-            <p className="text-lg mb-10" >yang akan dilaksanakan pada :</p>
-            <p className="text-2xl mb-10 font-bold">Jum'at, 6 Desember 2024</p>
+        <div className="bg-secondary text-primary flex flex-col justify-center text-center w-[90%] h-svh py-10">
+            {/* <div className="bg-gray-500 bg-opacity-30 p-5 w-[90%] shadow-xl flex flex-col items-center justify-center "> */}
+            <p className="text-base mb-10" >yang akan dilaksanakan pada :</p>
+            <p className="text-xl mb-10 font-bold">Jum'at, 6 Desember 2024</p>
         
-        <div className="px-10">
-            <p>
+            <p className="text-base">
                 Kami memohon maaf karena tidak mengundang teman-teman sekalian. Kami memutuskan untuk mengadakan acara pernikahan kami secara sederhana, 
                 yang hanya akan dihadiri oleh keluarga besar dan kerabat dekat kami saja. Meski 
                 begitu, kehadiran kalian di hati kami serta doa dan dukungan dari kalian akan selalu
                 berarti dan menjadi anugerah yang tak ternilai.
             </p>
-        </div>
+            {/* </div> */}
         </div>
         <div className='h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
             <p className={'text-3xl text-center ' + great.className}>Our Story</p>
@@ -191,7 +191,8 @@ export default function Home() {
         </div>
         {/* <div className="flex items-center justify-center"> */}
             <div className="flex flex-col w-full p-10 gap-10 mt-20 bg-secondary items-center">
-                <form onSubmit={handleSubmit} className="space-y-4 w-[75%] p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
+                <div className="flex w-[85%] bg-white shadow-md rounded-2xl p-4">
+                <form onSubmit={handleSubmit} className="space-y-4 w-2/3 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                 <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
                 <div>
                     <label className="block text-left text-primary text-sm font-medium mb-2">Nama :</label>
@@ -216,7 +217,12 @@ export default function Home() {
                 </div>
                 </form>
 
-                <div className="flex-auto w-[75%] p-4 bg-slate-300 shadow-md rounded-2xl overflow-y-auto h-96"> 
+                <div className="w-1/3 flex justify-center items-center">
+                    <img src="/3.png" alt="Dekorasi" className="max-w-full max-h-full object-contain" />
+                </div>
+                </div>
+
+                <div className="flex-auto w-[85%] p-4 bg-slate-300 shadow-md rounded-2xl overflow-y-auto h-96"> 
                     <h3 className="text-center font-semibold text-primary mb-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</h3>
                     <div className="space-y-4">
                         {messages.map((msg, index) => (
