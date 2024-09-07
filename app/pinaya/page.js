@@ -89,12 +89,12 @@ export default function Home() {
       
     
         <div className='w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 py-10'>
-            <p className="sm:text-lg text-sm font-bold text-center">
+            <p className="sm:text-lg text-sm font-bold text-center animate-fadeInOnce">
                 Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu
                 dari teman-teman sekalian untuk pernikahan kami :
             </p>
         
-            <div className='flex flex-col w-full gap-4'>
+            <div className='flex flex-col w-full gap-4 animate-fadeInOnce'>
                 <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                     <div className="w-1/2 p-4">
                         <p className={"sm:text-5xl text-3xl font-extrabold  text-left " + great.className}>
@@ -191,7 +191,7 @@ export default function Home() {
         </div>
         {/* <div className="flex items-center justify-center"> */}
             <div className="flex flex-col w-full p-10 gap-10 mt-20 bg-secondary items-center">
-                <div className="flex w-[85%] bg-white shadow-md rounded-2xl p-4">
+                <div className="flex w-[75%] bg-white shadow-md rounded-2xl p-4">
                 <form onSubmit={handleSubmit} className="space-y-4 w-2/3 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                 <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
                 <div>
@@ -200,7 +200,7 @@ export default function Home() {
                         type="text"
                         value={name} 
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Nama Anda" required/>
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400" placeholder="Nama Anda" required/>
                 </div>
 
                 <div>
@@ -208,7 +208,7 @@ export default function Home() {
                     <textarea 
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="w-full px-4 py-4 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tulis ucapan selamat Anda disini ..." required>   
+                        className="w-full px-4 py-4 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400" placeholder="Tulis ucapan selamat Anda disini ..." required>   
                     </textarea>
                 </div>
 
@@ -239,3 +239,7 @@ export default function Home() {
     </div>
   );
 }
+
+
+// scroll snap align untuk memposisikan foto selalu berada di tengah.
+// belum ada navbar
