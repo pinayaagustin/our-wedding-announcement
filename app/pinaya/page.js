@@ -119,18 +119,19 @@ export default function Home() {
             </div>
         </div>
         <div className="bg-secondary text-primary flex flex-col justify-center text-center w-[90%] h-svh py-10">
-            {/* <div className="bg-gray-500 bg-opacity-30 p-5 w-[90%] shadow-xl flex flex-col items-center justify-center "> */}
+            <div className="">
             <p className="text-base mb-10" >yang akan dilaksanakan pada :</p>
             <p className="text-xl mb-10 font-bold">Jum'at, 6 Desember 2024</p>
-        
+            </div>
+
             <p className="text-base">
                 Kami memohon maaf karena tidak mengundang teman-teman sekalian. Kami memutuskan untuk mengadakan acara pernikahan kami secara sederhana, 
                 yang hanya akan dihadiri oleh keluarga besar dan kerabat dekat kami saja. Meski 
                 begitu, kehadiran kalian di hati kami serta doa dan dukungan dari kalian akan selalu
                 berarti dan menjadi anugerah yang tak ternilai.
             </p>
-            {/* </div> */}
         </div>
+
         <div className='h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
             <p className={'text-3xl text-center ' + great.className}>Our Story</p>
             <div className='flex flex-col overflow-y-auto'>
