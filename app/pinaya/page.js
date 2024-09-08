@@ -81,14 +81,14 @@ export default function Home() {
     };
 
     return (
-        <div className="w-full items-center justify-center flex flex-col">
-            <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
+        <div className="w-screen h-screen overflow-y-scroll snap-y snap-mandatory">
+            {/* <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
             <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
                 <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" />
-            </button>
+            </button> */}
 
 
-            <div className='w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 py-10'>
+            <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 py-10'>
                 <p className="sm:text-lg text-sm font-bold text-center animate-fadeInOnce">
                     Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu
                     dari teman-teman sekalian untuk pernikahan kami :
@@ -118,8 +118,8 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="bg-secondary text-primary flex flex-col justify-center text-center w-[90%] h-svh py-10">
-                {/* <div className="bg-gray-500 bg-opacity-30 p-5 w-[90%] shadow-xl flex flex-col items-center justify-center "> */}
+
+            <div className="snap-center bg-secondary text-primary flex flex-col justify-center text-center w-full h-svh px-10">
                 <p className="text-base mb-10" >yang akan dilaksanakan pada :</p>
                 <p className="text-xl mb-10 font-bold">Jum'at, 6 Desember 2024</p>
 
@@ -129,9 +129,8 @@ export default function Home() {
                     begitu, kehadiran kalian di hati kami serta doa dan dukungan dari kalian akan selalu
                     berarti dan menjadi anugerah yang tak ternilai.
                 </p>
-                {/* </div> */}
             </div>
-            <div className='h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
+            <div className='snap-center h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
                 <p className={'text-3xl text-center ' + great.className}>Our Story</p>
                 <div className='flex flex-col overflow-y-auto'>
                     {story.map((data, index) => {
@@ -189,40 +188,36 @@ export default function Home() {
                     })}
                 </div>
             </div>
-            {/* <div className="flex items-center justify-center"> */}
-            <div className="flex flex-col w-full p-10 gap-10 mt-20 bg-secondary items-center">
-                <div className="flex w-[75%] bg-white shadow-md rounded-2xl p-4">
-                    <form onSubmit={handleSubmit} className="space-y-4 w-2/3 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
-                        <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
-                        <div>
-                            <label className="block text-left text-primary text-sm font-medium mb-2">Nama :</label>
-                            <input
-                                type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400" placeholder="Nama Anda" required />
-                        </div>
-
-                        <div>
-                            <label className="block text-left text-primary text-sm font-medium mb-2">Ucapan Selamat :</label>
-                            <textarea
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                                className="w-full px-4 py-4 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400" placeholder="Ucapkan selamat kepada calon penantin ..." required>
-                            </textarea>
-                        </div>
-
-                        <div className="flex justify-center">
-                            <button type="submit" className="text-center bg-slate-200 text-primary py-2 px-4 rounded-2xl hover:bg-slate-400 transition duration-300">Kirim</button>
-                        </div>
-                    </form>
-
-                    <div className="w-1/3 flex justify-center items-center">
-                        <img src="/3.png" alt="Dekorasi" className="max-w-full max-h-full object-contain" />
+            <div className="snap-center flex flex-col w-full p-10 gap-10 mt-20 bg-secondary items-center relative overflow-x-hidden">
+                <form onSubmit={handleSubmit} className="space-y-4 w-full p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
+                    <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
+                    <div>
+                        <label className="block text-left text-primary text-sm font-medium mb-2">Nama :</label>
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400" required />
                     </div>
-                </div>
 
-                <div className="flex-auto w-[85%] p-4 bg-slate-300 shadow-md rounded-2xl overflow-y-auto h-96">
+                    <div>
+                        <label className="block text-left text-primary text-sm font-medium mb-2">Ucapan Selamat :</label>
+                        <textarea
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            className="w-full px-4 py-4 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400" required>
+                        </textarea>
+                    </div>
+
+                    <div className="flex justify-center">
+                        <button type="submit" className="text-center bg-slate-200 text-primary py-2 px-4 rounded-2xl hover:bg-slate-400 transition duration-300">Kirim</button>
+                    </div>
+                    <div className="sm:w-[15%] w-[50%] h-full top-0 sm:-right-[8%] -right-[35%] absolute z-20">
+                        <Image src="/3.png" fill alt="Dekorasi" className="object-contain" />
+                    </div>
+                </form>
+
+                <div className="flex-auto w-full p-4 bg-slate-300 shadow-md rounded-2xl overflow-y-auto">
                     <h3 className="text-center font-semibold text-primary mb-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</h3>
                     <div className="space-y-4">
                         {messages.map((msg, index) => (
@@ -235,7 +230,6 @@ export default function Home() {
                 </div>
 
             </div>
-            {/* </div> */}
         </div>
     );
 }
