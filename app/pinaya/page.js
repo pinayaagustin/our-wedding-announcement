@@ -79,6 +79,13 @@ export default function Home() {
     };
 
     return (
+        <div>
+            <navbar />
+            <main className="sticky p-4 bg-primary text-secondary ">
+                <h1 className="text-4xl font-bold">Hari Bahagia Kami Segera Tiba!</h1>
+                <p className="mt-4">hal 1</p>
+            </main>
+        
         <div className="w-screen h-screen overflow-y-scroll snap-y snap-mandatory">
             {/* <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
             <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
@@ -92,7 +99,7 @@ export default function Home() {
                     dari teman-teman sekalian untuk pernikahan kami :
                 </p>
 
-                <div className='flex flex-col w-full gap-4 animate-fadeInOnce'>
+                <div className='snap-center flex flex-col w-full gap-4 animate-fadeInOnce'>
                     <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                         <div className="w-1/2 p-4">
                             <p className={"sm:text-5xl text-3xl font-extrabold  text-left " + great.className}>
@@ -228,6 +235,7 @@ export default function Home() {
                 </div>
 
             </div>
+        </div>
         </div>
     );
 }
