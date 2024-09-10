@@ -1,7 +1,7 @@
 'use client'
 // components/Envelope.js
 import { delay, motion } from 'framer-motion';
-import './Envelope.css'; // Menggunakan CSS module untuk styling
+// import './Envelope.css'; // Menggunakan CSS module untuk styling
 import { useState } from 'react';
 
 const Envelope = () => {
