@@ -27,7 +27,7 @@ const Envelope = () => {
   );
 };
 
-export default function Envel({setOpenParent}) {
+export default function Envel({setOpenParent,audioOn}) {
   const [isOpen, setIsOpen] = useState(false);
   const [windowHeight, setWindowHeight] = useState(0);
 
@@ -56,6 +56,7 @@ export default function Envel({setOpenParent}) {
           }} onClick={()=>{
               setIsOpen(true)
               setOpenParent(true)
+              audioOn()
             }}>
             <Envelope />
           </motion.div>

@@ -9,7 +9,7 @@ import { delay, motion } from 'framer-motion';
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
 
 export default function Home() {
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(null);
     const [isOpen,setIsOpen] = useState(false)
     const [completeAnimation, setCompleteAnimation] = useState(false)
@@ -18,10 +18,10 @@ export default function Home() {
         if (audioRef.current) {
             audioRef.current.play()
                 .then(() => {
-                    console.log('Audio playing');
+                    // console.log('Audio playing');
                 })
                 .catch((error) => {
-                    console.error('Autoplay was prevented:', error);
+                    // console.error('Autoplay was prevented:', error);
                     setIsPlaying(false);
                 });
         }
@@ -106,8 +106,8 @@ export default function Home() {
 
     return (
         <div className="w-screen h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-            {/* <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
-            <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
+            <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
+            {/* <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
                 <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" />
             </button> */}
             {!completeAnimation ?
@@ -117,7 +117,7 @@ export default function Home() {
                         setCompleteAnimation(true)
                     }
                 }}>
-                    <Envel setOpenParent={setIsOpen} />
+                    <Envel setOpenParent={setIsOpen} audioOn={toggleAudio}/>
                 </motion.div>
             :
             <div>
