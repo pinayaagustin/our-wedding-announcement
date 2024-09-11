@@ -101,15 +101,15 @@ export default function Home() {
         staggerHidden: { opacity: 0, x: -10 },
         staggerVisible: { opacity: 1, x: 0 },
     }
-    const txtDengan = "Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami :";
+    const txtDengan = "Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami:";
     const wrdDengan = txtDengan.split(" ");
 
     return (
         <div className="w-screen h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
             <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
-            {/* <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
-                <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" />
-            </button> */}
+            <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
+                {/* <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" /> */}
+            </button>
             {!completeAnimation ?
                 <motion.div className='snap-start h-svh' initial={'open'} variants={vars} animate={isOpen ? 'close':'open'} transition={{delay:5}} 
                 onAnimationComplete={(animation)=>{
@@ -122,7 +122,7 @@ export default function Home() {
             :
             <div>
                 <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 py-10'>
-                    <motion.div className="sm:text-lg text-sm font-bold text-center" initial="staggerHidden" variants={vars} whileInView="staggerVisible">
+                    <motion.div className="sm:text-xl sm:w-1/2 sm:mx-auto text-sm font-bold text-center" initial="staggerHidden" variants={vars} whileInView="staggerVisible">
                         {/* Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu
                         dari teman-teman sekalian untuk pernikahan kami : */}
                         {wrdDengan.map((word, index) => (
@@ -131,24 +131,23 @@ export default function Home() {
                             </motion.span>
                         ))}
                     </motion.div>
-
                     <div className=' flex flex-col w-full gap-4'>
                         <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
-                            <motion.div className="w-1/2 p-4" initial='slideFromRight' variants={vars} whileInView="standby" transition={{duration:0.5,delay:2}}>
+                            <motion.div className="w-1/2 p-4 sm:w-fit" initial='slideFromRight' variants={vars} whileInView="standby" transition={{duration:0.5,delay:2}}>
                                 <p className={"sm:text-5xl text-3xl font-extrabold  text-left " + great.className}>
                                     Kukuh Iman Damaryanto
                                 </p>
                             </motion.div>
-                            <motion.div className="w-1/2 sm:w-1/3 p-4 relative aspect-[4/4]" initial='slideFromLeft' variants={vars} whileInView="standby" transition={{duration:0.5,delay:2}}>
+                            <motion.div className="w-1/2 sm:w-[13%] p-4 relative aspect-[4/4]" initial='slideFromLeft' variants={vars} whileInView="standby" transition={{duration:0.5,delay:2}}>
                                 <Image alt='kukuh' src='/2.jpeg' fill sizes='1' className="rounded-full object-cover" />
                             </motion.div>
                         </div>
                         <motion.p className={"sm:text-8xl text-2xl gap-32 font-extrabold  text-center " + great.className} initial={{scale:0}} whileInView={{scale:1}} transition={{duration:0.5,delay:2.5, type: 'spring', stiffness: 100}}>&</motion.p>
                         <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
-                            <motion.div className="w-1/2 sm:w-1/3 p-4 relative aspect-[4/4]" initial='slideFromLeft' variants={vars} whileInView="standby" transition={{duration:0.5,delay:3}}>
+                            <motion.div className="w-1/2 sm:w-[13%] p-4 relative aspect-[4/4]" initial='slideFromLeft' variants={vars} whileInView="standby" transition={{duration:0.5,delay:3}}>
                                 <Image alt='pinaya' src='/2.jpeg' fill sizes='1' className="rounded-full object-cover" />
                             </motion.div>
-                            <motion.div className="w-1/2 p-4" initial='slideFromRight' variants={vars} whileInView="standby" transition={{duration:0.5,delay:3}}>
+                            <motion.div className="w-1/2 p-4 sm:w-fit" initial='slideFromRight' variants={vars} whileInView="standby" transition={{duration:0.5,delay:3}}>
                                 <p className={"sm:text-5xl text-3xl font-extrabold  text-right " + great.className}>
                                     Pinaya Agustin
                                 </p>
