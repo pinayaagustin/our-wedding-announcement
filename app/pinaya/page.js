@@ -92,7 +92,8 @@ export default function Home() {
                 <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" />
             </button> */}
 
-
+                
+            {/* Pembukaan dan nama Catin */}
             <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 py-10'>
                 <p className="sm:text-lg text-sm font-bold text-center animate-fadeInOnce">
                     Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu
@@ -123,7 +124,8 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
+            
+            {/* Informasi tanggal dll */}
             <div className="snap-center bg-secondary text-primary flex flex-col justify-center text-center w-full h-svh px-10">
                 <p className="text-base mb-10" >yang akan dilaksanakan pada :</p>
                 <p className="text-xl mb-10 font-bold">Jum'at, 6 Desember 2024</p>
@@ -135,6 +137,8 @@ export default function Home() {
                     berarti dan menjadi anugerah yang tak ternilai.
                 </p>
             </div>
+
+            {/* Our story (timeline hubungan kita dan foto) */}
             <div className='snap-center h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
                 <p className={'text-3xl text-center ' + great.className}>Our Story</p>
                 <div className='flex flex-col overflow-y-auto'>
@@ -193,6 +197,8 @@ export default function Home() {
                     })}
                 </div>
             </div>
+
+            {/* Form pengisian ucapan selamat */}
             <div className="snap-center flex flex-col w-full p-10 gap-10 mt-20 bg-secondary items-center relative overflow-x-hidden">
                 <form onSubmit={handleSubmit} className="space-y-4 w-full p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                     <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
@@ -222,6 +228,7 @@ export default function Home() {
                     </div>
                 </form>
 
+                {/* List ucapan selamat */}
                 <div className="flex-auto w-full p-4 bg-slate-300 shadow-md rounded-2xl overflow-y-auto">
                     <h3 className="text-center font-semibold text-primary mb-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</h3>
                     <div className="space-y-4">
@@ -233,10 +240,9 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-
             </div>
         </div>
-        </div>
+    </div>
     );
 }
 
