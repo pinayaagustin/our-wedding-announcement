@@ -5,8 +5,6 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import Envel from '../envel/page';
 import '../globals.css';
-
-import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeHigh, faVolumeXmark, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
