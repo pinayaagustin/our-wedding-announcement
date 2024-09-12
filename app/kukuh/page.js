@@ -1,9 +1,11 @@
 'use client'
+import { motion } from 'framer-motion';
 import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import '../globals.css';
 import Envel from '../envel/page';
+import '../globals.css';
+
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeHigh, faVolumeXmark, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
@@ -116,7 +118,10 @@ export default function Home() {
 
     return (
         <div className="w-screen h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-            <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
+            <audio ref={audioRef} src="/music2.mp3" loop className="hidden"></audio>
+            <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
+                {/* <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" /> */}
+            </button>
             {!completeAnimation ?
                 <motion.div className='snap-start h-svh' initial={'open'} variants={vars} animate={isOpen ? 'close':'open'} transition={{delay:5}} 
                 onAnimationComplete={(animation)=>{
