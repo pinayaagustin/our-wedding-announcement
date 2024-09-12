@@ -1,10 +1,10 @@
 'use client'
+import { motion } from 'framer-motion';
 import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import '../globals.css';
 import Envel from '../envel/page';
-import { delay, motion } from 'framer-motion';
+import '../globals.css';
 
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
 
@@ -106,7 +106,7 @@ export default function Home() {
 
     return (
         <div className="w-screen h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
-            <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
+            <audio ref={audioRef} src="/music2.mp3" loop className="hidden"></audio>
             <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
                 {/* <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" /> */}
             </button>
