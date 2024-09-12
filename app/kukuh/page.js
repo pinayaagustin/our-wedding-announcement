@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import '../globals.css';
 import Envel from '../envel/page';
-import { delay, motion } from 'framer-motion';
-
+import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVolumeHigh, faVolumeXmark, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
 
 export default function Home() {
@@ -92,10 +93,12 @@ export default function Home() {
                 delayChildren: 0.05,
             },
         },
-        slideFromRight: {x: -10, opacity:0},
-        slideFromLeft: {x: 10,opacity:0},
-        standby: {x:0,opacity:1},
-        
+        slideFromRight: {x: -10, opacity:0,},
+        slideFromLeft: {x: 10,opacity:0,},
+        standby: {x:0,y:0,opacity:1},
+        slideFromBottom: {y: 10,opacity:0,},
+        fadeFromBottom:{opacity:0,x:-100},
+        fadeUp:{opacity:0.15,x:0}
     }
     const childVars = {
         staggerHidden: { opacity: 0, x: -10 },
@@ -104,12 +107,16 @@ export default function Home() {
     const txtDengan = "Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami:";
     const wrdDengan = txtDengan.split(" ");
 
+    const txtTglLaksana = "yang akan dilaksanakan pada :"
+    const txtTgl = "Jum'at, 6 Desember 2024"
+    const txtTglDesc = "Kami memohon maaf karena tidak mengundang teman-teman sekalian. Kami memutuskan untuk mengadakan acara pernikahan kami secara sederhana, yang hanya akan dihadiri oleh keluarga besar dan kerabat dekat kami saja. Meski begitu, kehadiran kalian di hati kami serta doa dan dukungan dari kalian akan selalu berarti dan menjadi anugerah yang tak ternilai."
+    const wrdTglLaksana = txtTglLaksana.split(" ");
+    const wrdTgl = txtTgl.split(" ");
+    const wrdTglDesc = txtTglDesc.split(" ");
+
     return (
         <div className="w-screen h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
             <audio ref={audioRef} src="/music.mp3" loop className="hidden"></audio>
-            <button onClick={toggleAudio} className="fixed top-4 right-4 z-50 bg-[#FFCBCB] hover:bg-blue-900 text-white p-3 rounded-full">
-                {/* <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="sm" /> */}
-            </button>
             {!completeAnimation ?
                 <motion.div className='snap-start h-svh' initial={'open'} variants={vars} animate={isOpen ? 'close':'open'} transition={{delay:5}} 
                 onAnimationComplete={(animation)=>{
@@ -121,17 +128,21 @@ export default function Home() {
                 </motion.div>
             :
             <div>
-                <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 py-10'>
+                <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 relative'>
+                    <motion.div className='absolute left-0 z-0 h-full w-[70%] opacity-15' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
+                        <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
+                    </motion.div>
+                    <button onClick={toggleAudio} className="fixed top-4 right-4 sm:right-10 z-50 text-white">
+                        <FontAwesomeIcon icon={isPlaying ? faVolumeHigh : faVolumeXmark} size="sm" className="w-full" />
+                    </button>
                     <motion.div className="sm:text-xl sm:w-1/2 sm:mx-auto text-sm font-bold text-center" initial="staggerHidden" variants={vars} whileInView="staggerVisible">
-                        {/* Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu
-                        dari teman-teman sekalian untuk pernikahan kami : */}
                         {wrdDengan.map((word, index) => (
                             <motion.span key={index} variants={childVars} className="inline-block mr-1">
                             {word}
                             </motion.span>
                         ))}
                     </motion.div>
-                    <div className=' flex flex-col w-full gap-4'>
+                    <div className=' flex flex-col w-full gap-4 items-center'>
                         <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                             <motion.div className="w-1/2 p-4 sm:w-fit" initial='slideFromRight' variants={vars} whileInView="standby" transition={{duration:0.5,delay:2}}>
                                 <p className={"sm:text-5xl text-3xl font-extrabold  text-left " + great.className}>
@@ -142,7 +153,7 @@ export default function Home() {
                                 <Image alt='kukuh' src='/2.jpeg' fill sizes='1' className="rounded-full object-cover" />
                             </motion.div>
                         </div>
-                        <motion.p className={"sm:text-8xl text-2xl gap-32 font-extrabold  text-center " + great.className} initial={{scale:0}} whileInView={{scale:1}} transition={{duration:0.5,delay:2.5, type: 'spring', stiffness: 100}}>&</motion.p>
+                        <motion.p className={"sm:text-8xl w-fit text-2xl gap-32 font-extrabold  text-center " + great.className} initial={{scale:0}} whileInView={{scale:1}} transition={{duration:0.5,delay:2.5, type: 'spring', stiffness: 100}}>&</motion.p>
                         <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                             <motion.div className="w-1/2 sm:w-[13%] p-4 relative aspect-[4/4]" initial='slideFromLeft' variants={vars} whileInView="standby" transition={{duration:0.5,delay:3}}>
                                 <Image alt='pinaya' src='/2.jpeg' fill sizes='1' className="rounded-full object-cover" />
@@ -154,18 +165,33 @@ export default function Home() {
                             </motion.div>
                         </div>
                     </div>
+                    <motion.div className='mx-auto' initial='slideFromBottom' variants={vars} whileInView="standby" transition={{duration:0.5,delay:3}}>
+                        <FontAwesomeIcon icon={faAnglesDown} opacity={0.3} />
+                    </motion.div>
                 </div>
 
-                <div className="snap-center bg-secondary text-primary flex flex-col justify-center text-center w-full h-svh px-10">
-                    <p className="text-base mb-10" >yang akan dilaksanakan pada :</p>
-                    <p className="text-xl mb-10 font-bold">Jum'at, 6 Desember 2024</p>
-
-                    <p className="text-base">
-                        Kami memohon maaf karena tidak mengundang teman-teman sekalian. Kami memutuskan untuk mengadakan acara pernikahan kami secara sederhana,
-                        yang hanya akan dihadiri oleh keluarga besar dan kerabat dekat kami saja. Meski
-                        begitu, kehadiran kalian di hati kami serta doa dan dukungan dari kalian akan selalu
-                        berarti dan menjadi anugerah yang tak ternilai.
-                    </p>
+                <div className="snap-center bg-secondary text-primary flex flex-col items-center justify-center gap-10 text-center w-full h-svh px-10">
+                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible" className="text-base" >
+                        {wrdTglLaksana.map((word, index) => (
+                            <motion.span key={index} variants={childVars} className="inline-block mr-1">
+                            {word}
+                            </motion.span>
+                        ))}
+                    </motion.p>
+                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="sm:text-3xl text-xl font-bold">
+                        {wrdTgl.map((word, index) => (
+                                <motion.span key={index} variants={childVars} className="inline-block mr-1">
+                                {word}
+                                </motion.span>
+                        ))}
+                    </motion.p>
+                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="text-base sm:w-[30%]">
+                        {wrdTglDesc.map((word, index) => (
+                                <motion.span key={index} variants={childVars} className="inline-block mr-1">
+                                {word}
+                                </motion.span>
+                        ))}
+                    </motion.p>
                 </div>
                 <div className='snap-center h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
                     <p className={'text-3xl text-center ' + great.className}>Our Story</p>

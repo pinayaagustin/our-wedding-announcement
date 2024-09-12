@@ -7,8 +7,8 @@ const Envelope = () => {
   const envelopeVariants = {
     closed: { transform: 'matrix(1, 0, 0, -1, 489.99951171875, 192)'},
     open: { transform: 'matrix(1, 0, 0, 1, 489.99951171875, -1)' },
-    goUp:{y:-70, height:500, transition: {duration:1, delay:1.5, ease: 'easeOut'}},
-    goDown:{y:500, height:0, transition: {duration:1, ease: 'easeOut'}},
+    goUp:{y:-70, height:460, transition: {duration:1, delay:1.5, ease: 'easeOut'}},
+    goDown:{y:300, height:0, transition: {duration:1, ease: 'easeOut'}},
     zoomIn: { scale: 8, y:90, transition: { duration: 3, ease: 'easeInOut' } },
     zoomOut:{ scale: 1}
   };
@@ -43,7 +43,9 @@ export default function Envel({setOpenParent,audioOn}) {
   }, []);
     return (
       <motion.div className='overflow-hidden bg-primary'>
-        <motion.div className='flex items-center justify-center flex-col h-svh gap-10 inset-0 bg-[url(/imageAwal.jpg)] bg-no-repeat bg-cover bg-center overflow-hidden' animate={isOpen ? 'slideDown' : 'slideStandby'} variants={envelopeVariants} initial="slideStandby" transition={{duration:1,delay:4,ease:'easeInOut'}}>
+        <motion.div className='flex items-center justify-center flex-col h-svh gap-10 inset-0 bg-[url(/imageAwal.jpg)] bg-no-repeat bg-cover bg-center overflow-hidden' 
+        animate={isOpen ? 'slideDown' : 'slideStandby'} variants={envelopeVariants} initial="slideStandby" transition={{duration:1,delay:4,ease:'easeInOut'}}
+        >
           {/* <div className='absolute inset-0 bg-black/20'></div> */}
           <p className={great.className + ' sm:text-5xl text-4xl text-center w-[80%] text-white drop-shadow-[0_5px_2px_rgba(0,0,0,0.6)]' } >Hari Bahagia Kami<br/>Segera Tiba!</p>
           <motion.div animate={isOpen ? {scale: 1} : {
