@@ -98,11 +98,15 @@ export default function Home() {
         standby: {x:0,y:0,opacity:1},
         slideFromBottom: {y: 10,opacity:0,},
         fadeFromBottom:{opacity:0,x:-100},
-        fadeUp:{opacity:0.15,x:0}
+        fadeUp:{opacity:0.15,x:0},
+        scaleFrom:{scale:0,opacity:0},
+        scaleTo:{scale:1,opacity:1,transition:{type: 'spring', stiffness: 100, staggerChildren:0.4, delayChildren:0.01}},
     }
     const childVars = {
         staggerHidden: { opacity: 0, x: -10 },
         staggerVisible: { opacity: 1, x: 0 },
+        scaleFrom:{scale:0,opacity:0},
+        scaleTo:{scale:1,opacity:1}
     }
     const txtDengan = "Dengan penuh cinta dan sukacita, kami bermaksud membagikan kabar bahagia ini sekaligus memohon doa dan restu dari teman-teman sekalian untuk pernikahan kami:";
     const wrdDengan = txtDengan.split(" ");
@@ -175,9 +179,9 @@ export default function Home() {
                         <motion.div className='absolute h-full w-[150%] z-0' whileInView={{scale:1, opacity:1}} initial={{scale:0, opacity:0}} transition={{duration:0.5}}>
                             <Image src='/borderRoundedFlower.png' alt='flower' fill sizes='1' className='object-contain'/>
                         </motion.div>
-                        <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible" className="text-base" >
+                        <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible" className="text-base z-20" >
                             {wrdTglLaksana.map((word, index) => (
-                                <motion.span key={index} variants={childVars} className="inline-block mr-1">
+                                <motion.span key={index} variants={childVars} className="inline-block mr-1 z-40">
                                 {word}
                                 </motion.span>
                             ))}
@@ -200,14 +204,14 @@ export default function Home() {
                 </div>
                 <div className='snap-center h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
                     <p className={'text-3xl text-center ' + great.className}>Our Story</p>
-                    <div className='flex flex-col overflow-y-auto'>
+                    <motion.div className='flex flex-col overflow-y-auto overflow-x-hidden' initial='scaleFrom' variants={vars} whileInView='scaleTo'>
                         {story.map((data, index) => {
                             if (index % 2 == 0)
                                 return (
                                     <div key={data.id} className='flex w-full items-center justify-between gap-3'>
-                                        <div className='flex items-center justify-center w-full aspect-[4/4] relative'>
+                                        <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative'>
                                             <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full' />
-                                        </div>
+                                        </motion.div>
                                         <div className='flex items-center justify-center w-6'>
                                             <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
                                                 <path d="M 3025.065 246.67 L 1599.905 246.67 C 1588.586 221.54 1552.884 221.491 1541.541 246.67 C 1445.736 246.67 1453.267 246.575 1451.301 246.86 C 1439.247 212.068 
@@ -221,19 +225,19 @@ export default function Home() {
                                                 />
                                             </svg>
                                         </div>
-                                        <div className='flex flex-col items-center justify-center gap-4 w-full'>
+                                        <motion.div variants={childVars} className='flex flex-col items-center justify-center gap-4 w-full'>
                                             <p className='text-lg font-extrabold'>{data.date}</p>
                                             <p className='text-sm text-justify'>{data.description}</p>
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 )
                             else {
                                 return (
                                     <div key={data.id} className='flex w-full items-center justify-between gap-3'>
-                                        <div className='flex flex-col items-center justify-center gap-4 w-full'>
+                                        <motion.div variants={childVars} className='flex flex-col items-center justify-center gap-4 w-full'>
                                             <p className='text-lg font-extrabold'>{data.date}</p>
                                             <p className='text-sm text-justify'>{data.description}</p>
-                                        </div>
+                                        </motion.div>
                                         <div className='flex items-center justify-center w-6'>
                                             <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
                                                 <path d="M 3025.065 246.67 L 1599.905 246.67 C 1588.586 221.54 1552.884 221.491 1541.541 246.67 C 1445.736 246.67 1453.267 246.575 1451.301 246.86 C 1439.247 212.068 
@@ -247,14 +251,14 @@ export default function Home() {
                                                 />
                                             </svg>
                                         </div>
-                                        <div className='flex items-center justify-center w-full aspect-[4/4] relative'>
+                                        <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative'>
                                             <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full' />
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 )
                             }
                         })}
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="snap-center min-h-svh flex flex-col w-full p-10 gap-10 bg-secondary items-center relative overflow-x-hidden">
                     <form onSubmit={handleSubmit} className="space-y-4 w-full p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
