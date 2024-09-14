@@ -100,7 +100,7 @@ export default function Home() {
         fadeFromBottom:{opacity:0,x:-100},
         fadeUp:{opacity:0.15,x:0},
         scaleFrom:{scale:0,opacity:0},
-        scaleTo:{scale:1,opacity:1,transition:{type: 'spring', stiffness: 100, staggerChildren:0.4, delayChildren:0.01}},
+        scaleTo:{scale:1,opacity:1,transition:{type: 'spring', stiffness: 20, staggerChildren:0.6, delayChildren:0.8}},
     }
     const childVars = {
         staggerHidden: { opacity: 0, x: -10 },
@@ -154,13 +154,13 @@ export default function Home() {
                                 </p>
                             </motion.div>
                             <motion.div className="w-1/2 sm:w-[13%] p-4 relative aspect-[4/4]" initial='slideFromLeft' variants={vars} whileInView="standby" transition={{duration:0.5,delay:2}}>
-                                <Image alt='kukuh' src='/2.jpeg' fill sizes='1' className="rounded-full object-cover" />
+                                <Image alt='kukuh' src='/our-story/Kukuh.jpg' fill sizes='1' className="rounded-full object-cover" />
                             </motion.div>
                         </div>
                         <motion.p className={"sm:text-8xl w-fit text-2xl gap-32 font-extrabold  text-center " + great.className} initial={{scale:0}} whileInView={{scale:1}} transition={{duration:0.5,delay:2.5, type: 'spring', stiffness: 100}}>&</motion.p>
                         <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                             <motion.div className="w-1/2 sm:w-[13%] p-4 relative aspect-[4/4]" initial='slideFromLeft' variants={vars} whileInView="standby" transition={{duration:0.5,delay:3}}>
-                                <Image alt='pinaya' src='/2.jpeg' fill sizes='1' className="rounded-full object-cover" />
+                                <Image alt='pinaya' src='/our-story/Pinaya.jpg' fill sizes='1' className="rounded-full object-cover" />
                             </motion.div>
                             <motion.div className="w-1/2 p-4 sm:w-fit" initial='slideFromRight' variants={vars} whileInView="standby" transition={{duration:0.5,delay:3}}>
                                 <p className={"sm:text-5xl text-3xl font-extrabold  text-right " + great.className}>
