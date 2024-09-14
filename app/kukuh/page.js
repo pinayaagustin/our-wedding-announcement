@@ -128,7 +128,7 @@ export default function Home() {
                 </motion.div>
             :
             <div>
-                <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 relative overflow-hidden'>
+                <div className='snap-center w-full h-svh flex flex-col justify-evenly gap-10 bg-primary text-secondary px-10 relative overflow-hidden'>
                     <motion.div className='absolute left-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
                         <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
                     </motion.div>
