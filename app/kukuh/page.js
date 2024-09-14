@@ -119,7 +119,7 @@ export default function Home() {
     const wrdTglDesc = txtTglDesc.split(" ");
 
     return (
-        <div className="w-full h-svh overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+        <div className="w-full h-svh overflow-hidden">
             <audio ref={audioRef} src="/music2.mp3" loop className="hidden"></audio>
             {!completeAnimation ?
                 <motion.div className='snap-start h-svh' initial={'open'} variants={vars} animate={isOpen ? 'close':'open'} transition={{delay:5}} 
@@ -131,12 +131,12 @@ export default function Home() {
                     <Envel setOpenParent={setIsOpen} audioOn={toggleAudio}/>
                 </motion.div>
             :
-            <div>
+            <div className='overflow-y-scroll w-full h-svh snap-y snap-mandatory scroll-smooth'>
                 <div className='snap-center w-full h-svh flex flex-col justify-evenly gap-10 bg-primary text-secondary px-10 relative overflow-hidden'>
                     <motion.div className='absolute left-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
                         <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
                     </motion.div>
-                    <button onClick={toggleAudio} className="fixed top-4 right-4 sm:right-10 z-50 text-white">
+                    <button onClick={toggleAudio} className="fixed top-4 right-4 sm:right-10 z-50 text-[#16878E]">
                         <FontAwesomeIcon icon={isPlaying ? faVolumeHigh : faVolumeXmark} size="sm" className="w-full" />
                     </button>
                     <motion.div className="sm:text-xl sm:w-1/2 sm:mx-auto text-sm font-bold text-center" initial="staggerHidden" variants={vars} whileInView="staggerVisible">
@@ -202,17 +202,17 @@ export default function Home() {
                         ))}
                     </motion.p>
                 </div>
-                <div className='snap-center h-svh flex flex-col w-full justify-between p-10 overflow-y-auto bg-primary text-secondary'>
-                    <p className={'text-3xl text-center ' + great.className}>Our Story</p>
-                    <motion.div className='flex flex-col overflow-y-auto overflow-x-hidden' initial='scaleFrom' variants={vars} whileInView='scaleTo'>
+                <div className='snap-center h-svh flex flex-col w-full justify-between sm:justify-evenly p-10 overflow-y-auto bg-primary text-secondary'>
+                    <p className={'text-3xl text-center sm:text-5xl sm:font-extrabold ' + great.className}>Our Story</p>
+                    <motion.div className='flex flex-col overflow-y-auto overflow-x-hidden sm:overflow-y-hidden sm:overflow-x-auto sm:flex-row' initial='scaleFrom' variants={vars} whileInView='scaleTo'>
                         {story.map((data, index) => {
                             if (index % 2 == 0)
                                 return (
-                                    <div key={data.id} className='flex w-full items-center justify-between gap-3'>
-                                        <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative'>
+                                    <div key={data.id} className='flex w-full sm:flex-col items-center justify-between gap-3'>
+                                        <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full'>
                                             <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full' />
                                         </motion.div>
-                                        <div className='flex items-center justify-center w-6'>
+                                        <div className='flex items-center justify-center w-6 sm:hidden sm:h-0 sm:w-0'>
                                             <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
                                                 <path d="M 3025.065 246.67 L 1599.905 246.67 C 1588.586 221.54 1552.884 221.491 1541.541 246.67 C 1445.736 246.67 1453.267 246.575 1451.301 246.86 C 1439.247 212.068 
                                             1390.283 211.265 1377.084 245.641 C 1270.355 254.059 1187.345 215.444 1123.419 138.99 C 1120.173 135.108 1113.979 138.174 1115.12 143.104 C 1133.759 223.609 1129.683 
@@ -225,7 +225,31 @@ export default function Home() {
                                                 />
                                             </svg>
                                         </div>
-                                        <motion.div variants={childVars} className='flex flex-col items-center justify-center gap-4 w-full'>
+                                        <div className='sm:flex items-center justify-center h-6 w-full hidden'>
+                                            <svg viewBox="-2140.812 -41.4957 4999.999 277.5024" className='w-full h-full'>
+                                                <path d="M 2846.065 93.926 L 1420.906 93.926 C 1409.587 68.796 1373.885 68.747 1362.542 93.926 C 1266.737 93.926 1274.268 93.831 1272.302 
+                                            94.116 C 1260.248 59.324 1211.284 58.521 1198.085 92.897 C 1091.356 101.315 1008.346 62.7 944.42 -13.754 C 941.174 -17.636 934.98 -14.57 
+                                            936.121 -9.64 C 954.76 70.865 950.684 131.68 902.465 161.106 C 774.094 239.446 694.185 238.784 399.956 136.244 C 392.031 133.483 390.779 
+                                            122.967 397.701 118.225 C 415.443 106.071 442.833 97.416 472.999 89.767 C 475.763 89.066 478.71 89.537 481.138 91.033 C 587.762 156.736 
+                                            702.68 189.154 810.092 132.764 C 879.065 96.554 864.151 24.646 786.998 -8.944 C 702.764 -45.617 539.788 1.542 387.067 49.839 C 143.047 
+                                            -64.968 -58.573 -72.969 -214.577 33.938 C -224.715 40.885 -235.82 46.262 -247.541 49.957 C -315.232 71.301 -393.402 86.517 -478.172 97.87 C 
+                                            -482.316 80.466 -497.925 67.507 -516.597 67.507 C -533.898 67.507 -548.567 78.638 -553.929 94.115 C -555.841 93.838 -548.031 93.925 -644.169 
+                                            93.925 C -655.491 68.787 -691.194 68.75 -702.533 93.925 L -2127.691 93.925 C -2134.938 93.926 -2140.812 99.8 -2140.812 107.047 C -2140.812 114.293 
+                                            -2134.938 120.168 -2127.691 120.168 L -702.532 120.168 C -691.213 145.298 -655.509 145.347 -644.168 120.168 C -548.363 120.168 -555.894 120.263 
+                                            -553.928 119.978 C -548.566 135.455 -533.898 146.585 -516.596 146.585 C -497.885 146.585 -482.248 133.573 -478.144 116.115 C -371.113 116.307 
+                                            -284.166 146.189 -217.12 205.488 C -213.443 208.74 -207.842 205.006 -209.554 200.407 C -235.501 130.749 -242.286 67.505 -190.26 35.143 C -56.949 -47.783 130.374 -37.192 362.855 59.76 C
+                                            365.034 60.669 364.933 63.833 362.688 64.564 C 278.765 91.91 279.127 92.985 265.599 92.54 C 139.084 -12.184 -119.225 3.731 -109.911 117.012 C -107.082 151.403 -86.817 178.048 -38.056 190.496 
+                                            C 88.211 222.732 208.412 198.647 341.525 145.621 C 351.879 141.496 363.444 141.664 373.658 146.125 C 595.919 243.206 770.966 270.318 912.962 184.198 C 995.428 134.183 1092.689 117.353 1198.09
+                                            121.207 C 1211.294 155.564 1260.249 154.769 1272.303 119.977 C 1274.215 120.254 1266.405 120.167 1362.543 120.167 C 1373.863 145.296 1409.566 145.347 1420.907 120.167 L 2846.066 120.167 C 2853.313 
+                                            120.167 2859.187 114.292 2859.187 107.046 C 2859.186 99.8 2853.311 93.926 2846.065 93.926 Z M 769.344 24.833 C 786.846 26.15 803.837 32.793 816.4 45.05 C 835.425 63.612 833.853 84.278 816.011 106.606 
+                                            C 806.446 118.575 793.187 127.122 778.513 131.528 C 696.447 156.166 597.409 128.63 492.737 83.778 C 583.202 37.09 675.426 17.767 769.344 24.833 Z M -62.898 150.958 C -101.737 131.014 -94.389 72.931 -36.305
+                                            57.536 C 59.54 32.132 165.929 50.447 252.009 97.074 C 139.582 142.262 15.889 191.417 -62.898 150.958 Z"
+                                                    style={{ transformOrigin: '359.188px 97.256px' }} 
+                                                    className='fill-secondary'
+                                                    />
+                                            </svg>
+                                        </div>
+                                        <motion.div variants={childVars} className='flex flex-col items-center justify-center gap-4 w-full sm:w-[45%] sm:h-full'>
                                             <p className='text-lg font-extrabold'>{data.date}</p>
                                             <p className='text-sm text-justify'>{data.description}</p>
                                         </motion.div>
@@ -233,12 +257,12 @@ export default function Home() {
                                 )
                             else {
                                 return (
-                                    <div key={data.id} className='flex w-full items-center justify-between gap-3'>
-                                        <motion.div variants={childVars} className='flex flex-col items-center justify-center gap-4 w-full'>
+                                    <div key={data.id} className='flex w-full sm:flex-col items-center justify-between gap-3'>
+                                        <motion.div variants={childVars} className='flex flex-col items-center justify-center gap-4 w-full sm:w-[45%] sm:h-full'>
                                             <p className='text-lg font-extrabold'>{data.date}</p>
                                             <p className='text-sm text-justify'>{data.description}</p>
                                         </motion.div>
-                                        <div className='flex items-center justify-center w-6'>
+                                        <div className='flex items-center justify-center w-6 sm:hidden sm:h-0 sm:w-0'>
                                             <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
                                                 <path d="M 3025.065 246.67 L 1599.905 246.67 C 1588.586 221.54 1552.884 221.491 1541.541 246.67 C 1445.736 246.67 1453.267 246.575 1451.301 246.86 C 1439.247 212.068 
                                             1390.283 211.265 1377.084 245.641 C 1270.355 254.059 1187.345 215.444 1123.419 138.99 C 1120.173 135.108 1113.979 138.174 1115.12 143.104 C 1133.759 223.609 1129.683 
@@ -251,7 +275,31 @@ export default function Home() {
                                                 />
                                             </svg>
                                         </div>
-                                        <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative'>
+                                        <div className='sm:flex items-center justify-center h-6 w-full hidden'>
+                                            <svg viewBox="-2140.812 -41.4957 4999.999 277.5024" className='w-full h-full'>
+                                                <path d="M 2846.065 93.926 L 1420.906 93.926 C 1409.587 68.796 1373.885 68.747 1362.542 93.926 C 1266.737 93.926 1274.268 93.831 1272.302 
+                                            94.116 C 1260.248 59.324 1211.284 58.521 1198.085 92.897 C 1091.356 101.315 1008.346 62.7 944.42 -13.754 C 941.174 -17.636 934.98 -14.57 
+                                            936.121 -9.64 C 954.76 70.865 950.684 131.68 902.465 161.106 C 774.094 239.446 694.185 238.784 399.956 136.244 C 392.031 133.483 390.779 
+                                            122.967 397.701 118.225 C 415.443 106.071 442.833 97.416 472.999 89.767 C 475.763 89.066 478.71 89.537 481.138 91.033 C 587.762 156.736 
+                                            702.68 189.154 810.092 132.764 C 879.065 96.554 864.151 24.646 786.998 -8.944 C 702.764 -45.617 539.788 1.542 387.067 49.839 C 143.047 
+                                            -64.968 -58.573 -72.969 -214.577 33.938 C -224.715 40.885 -235.82 46.262 -247.541 49.957 C -315.232 71.301 -393.402 86.517 -478.172 97.87 C 
+                                            -482.316 80.466 -497.925 67.507 -516.597 67.507 C -533.898 67.507 -548.567 78.638 -553.929 94.115 C -555.841 93.838 -548.031 93.925 -644.169 
+                                            93.925 C -655.491 68.787 -691.194 68.75 -702.533 93.925 L -2127.691 93.925 C -2134.938 93.926 -2140.812 99.8 -2140.812 107.047 C -2140.812 114.293 
+                                            -2134.938 120.168 -2127.691 120.168 L -702.532 120.168 C -691.213 145.298 -655.509 145.347 -644.168 120.168 C -548.363 120.168 -555.894 120.263 
+                                            -553.928 119.978 C -548.566 135.455 -533.898 146.585 -516.596 146.585 C -497.885 146.585 -482.248 133.573 -478.144 116.115 C -371.113 116.307 
+                                            -284.166 146.189 -217.12 205.488 C -213.443 208.74 -207.842 205.006 -209.554 200.407 C -235.501 130.749 -242.286 67.505 -190.26 35.143 C -56.949 -47.783 130.374 -37.192 362.855 59.76 C
+                                            365.034 60.669 364.933 63.833 362.688 64.564 C 278.765 91.91 279.127 92.985 265.599 92.54 C 139.084 -12.184 -119.225 3.731 -109.911 117.012 C -107.082 151.403 -86.817 178.048 -38.056 190.496 
+                                            C 88.211 222.732 208.412 198.647 341.525 145.621 C 351.879 141.496 363.444 141.664 373.658 146.125 C 595.919 243.206 770.966 270.318 912.962 184.198 C 995.428 134.183 1092.689 117.353 1198.09
+                                            121.207 C 1211.294 155.564 1260.249 154.769 1272.303 119.977 C 1274.215 120.254 1266.405 120.167 1362.543 120.167 C 1373.863 145.296 1409.566 145.347 1420.907 120.167 L 2846.066 120.167 C 2853.313 
+                                            120.167 2859.187 114.292 2859.187 107.046 C 2859.186 99.8 2853.311 93.926 2846.065 93.926 Z M 769.344 24.833 C 786.846 26.15 803.837 32.793 816.4 45.05 C 835.425 63.612 833.853 84.278 816.011 106.606 
+                                            C 806.446 118.575 793.187 127.122 778.513 131.528 C 696.447 156.166 597.409 128.63 492.737 83.778 C 583.202 37.09 675.426 17.767 769.344 24.833 Z M -62.898 150.958 C -101.737 131.014 -94.389 72.931 -36.305
+                                            57.536 C 59.54 32.132 165.929 50.447 252.009 97.074 C 139.582 142.262 15.889 191.417 -62.898 150.958 Z"
+                                                    style={{ transformOrigin: '359.188px 97.256px' }} 
+                                                    className='fill-secondary'
+                                                    />
+                                            </svg>
+                                        </div>
+                                        <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full'>
                                             <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full' />
                                         </motion.div>
                                     </div>
