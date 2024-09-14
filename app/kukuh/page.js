@@ -129,7 +129,7 @@ export default function Home() {
             :
             <div>
                 <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 relative overflow-hidden'>
-                    <motion.div className='absolute left-0 z-0 h-[99.9%] w-[70%] opacity-15' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
+                    <motion.div className='absolute left-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
                         <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
                     </motion.div>
                     <button onClick={toggleAudio} className="fixed top-4 right-4 sm:right-10 z-50 text-white">
@@ -190,7 +190,7 @@ export default function Home() {
                             ))}
                         </motion.p>
                     </div>
-                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="text-sm sm:w-[30%]">
+                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="text-sm sm:text-base sm:w-[40%]">
                         {wrdTglDesc.map((word, index) => (
                                 <motion.span key={index} variants={childVars} className="inline-block mr-1 z-10">
                                 {word}
@@ -256,7 +256,7 @@ export default function Home() {
                         })}
                     </div>
                 </div>
-                <div className="snap-center flex flex-col w-full p-10 gap-10 bg-secondary items-center relative overflow-x-hidden">
+                <div className="snap-center min-h-svh flex flex-col w-full p-10 gap-10 bg-secondary items-center relative overflow-x-hidden">
                     <form onSubmit={handleSubmit} className="space-y-4 w-full p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                         <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
                         <div>
