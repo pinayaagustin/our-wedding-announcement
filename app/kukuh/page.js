@@ -115,7 +115,7 @@ export default function Home() {
     const wrdTglDesc = txtTglDesc.split(" ");
 
     return (
-        <div className="w-screen h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+        <div className="w-full h-svh overflow-y-scroll snap-y snap-mandatory scroll-smooth">
             <audio ref={audioRef} src="/music2.mp3" loop className="hidden"></audio>
             {!completeAnimation ?
                 <motion.div className='snap-start h-svh' initial={'open'} variants={vars} animate={isOpen ? 'close':'open'} transition={{delay:5}} 
@@ -128,8 +128,8 @@ export default function Home() {
                 </motion.div>
             :
             <div>
-                <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 relative'>
-                    <motion.div className='absolute left-0 z-0 h-full w-[70%] opacity-15' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
+                <div className='snap-center w-full h-svh flex flex-col justify-center gap-10 bg-primary text-secondary px-10 relative overflow-hidden'>
+                    <motion.div className='absolute left-0 z-0 h-[99.9%] w-[70%] opacity-15' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
                         <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
                     </motion.div>
                     <button onClick={toggleAudio} className="fixed top-4 right-4 sm:right-10 z-50 text-white">
@@ -170,24 +170,29 @@ export default function Home() {
                     </motion.div>
                 </div>
 
-                <div className="snap-center bg-secondary text-primary flex flex-col items-center justify-center gap-10 text-center w-full h-svh px-10">
-                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible" className="text-base" >
-                        {wrdTglLaksana.map((word, index) => (
-                            <motion.span key={index} variants={childVars} className="inline-block mr-1">
-                            {word}
-                            </motion.span>
-                        ))}
-                    </motion.p>
-                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="sm:text-3xl text-xl font-bold">
-                        {wrdTgl.map((word, index) => (
+                <div className="snap-center bg-secondary text-primary flex flex-col items-center justify-center text-center w-full h-svh px-10 overflow-hidden">
+                    <div className='flex flex-col items-center h-[65%] w-full justify-center gap-2 relative'>
+                        <motion.div className='absolute h-full w-[150%] z-0' whileInView={{scale:1, opacity:1}} initial={{scale:0, opacity:0}} transition={{duration:0.5}}>
+                            <Image src='/borderRoundedFlower.png' alt='flower' fill sizes='1' className='object-contain'/>
+                        </motion.div>
+                        <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible" className="text-base" >
+                            {wrdTglLaksana.map((word, index) => (
                                 <motion.span key={index} variants={childVars} className="inline-block mr-1">
                                 {word}
                                 </motion.span>
-                        ))}
-                    </motion.p>
-                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="text-base sm:w-[30%]">
+                            ))}
+                        </motion.p>
+                        <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="sm:text-3xl text-xl font-bold">
+                            {wrdTgl.map((word, index) => (
+                                    <motion.span key={index} variants={childVars} className="inline-block mr-1">
+                                    {word}
+                                    </motion.span>
+                            ))}
+                        </motion.p>
+                    </div>
+                    <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="text-sm sm:w-[30%]">
                         {wrdTglDesc.map((word, index) => (
-                                <motion.span key={index} variants={childVars} className="inline-block mr-1">
+                                <motion.span key={index} variants={childVars} className="inline-block mr-1 z-10">
                                 {word}
                                 </motion.span>
                         ))}
@@ -251,7 +256,7 @@ export default function Home() {
                         })}
                     </div>
                 </div>
-                <div className="snap-center flex flex-col w-full p-10 gap-10 mt-20 bg-secondary items-center relative overflow-x-hidden">
+                <div className="snap-center flex flex-col w-full p-10 gap-10 bg-secondary items-center relative overflow-x-hidden">
                     <form onSubmit={handleSubmit} className="space-y-4 w-full p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                         <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
                         <div>
@@ -275,8 +280,8 @@ export default function Home() {
                         <div className="flex justify-center">
                             <button type="submit" className="text-center bg-slate-200 text-primary py-2 px-4 rounded-2xl hover:bg-slate-400 transition duration-300">Kirim</button>
                         </div>
-                        <div className="sm:w-[15%] w-[50%] h-full top-0 sm:-right-[8%] -right-[35%] absolute z-20">
-                            <Image src="/3.png" fill alt="Dekorasi" className="object-contain" />
+                        <div className="sm:w-[15%] w-[50%] h-[50%] top-[20%] sm:-right-[8%] -right-[30%] absolute z-20">
+                            <Image src="/3.png" fill alt="Dekorasi" sizes='1' className="object-contain" />
                         </div>
                     </form>
 

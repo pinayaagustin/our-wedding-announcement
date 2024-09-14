@@ -9,7 +9,7 @@ const Envelope = () => {
     open: { transform: 'matrix(1, 0, 0, 1, 489.99951171875, -1)' },
     goUp:{y:-70, height:460, transition: {duration:1, delay:1.5, ease: 'easeOut'}},
     goDown:{y:300, height:0, transition: {duration:1, ease: 'easeOut'}},
-    zoomIn: { scale: 8, y:90, transition: { duration: 3, ease: 'easeInOut' } },
+    zoomIn: { scale: 8, y:15, transition: { duration: 3, ease: 'easeInOut' } },
     zoomOut:{ scale: 1}
   };
 
