@@ -108,13 +108,13 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="w-1/2 sm:w-1/3 p-4 relative aspect-[4/4]">
-                            <Image src='/2.jpeg' fill className="rounded-full object-cover" />
+                            <Image src='/2.jpeg' alt='test' fill className="rounded-full object-cover" />
                         </div>
                     </div>
                     <p className={"sm:text-8xl text-2xl gap-32 font-extrabold  text-center " + great.className}>&</p>
                     <div className="flex flex-row justify-center w-full mx-auto gap-4 items-center">
                         <div className="w-1/2 sm:w-1/3 p-4 relative aspect-[4/4]">
-                            <Image src='/2.jpeg' fill className="rounded-full object-cover" />
+                            <Image src='/2.jpeg' alt='test' fill className="rounded-full object-cover" />
                         </div>
                         <div className="w-1/2 p-4">
                             <p className={"sm:text-5xl text-3xl font-extrabold  text-right " + great.className}>
@@ -128,7 +128,7 @@ export default function Home() {
             {/* Informasi tanggal dll */}
             <div className="snap-center bg-secondary text-primary flex flex-col justify-center text-center w-full h-svh px-10">
                 <p className="text-base mb-10" >yang akan dilaksanakan pada :</p>
-                <p className="text-xl mb-10 font-bold">Jum'at, 6 Desember 2024</p>
+                <p className="text-xl mb-10 font-bold">Jum&apos;at, 6 Desember 2024</p>
 
                 <p className="text-base">
                     Kami memohon maaf karena tidak mengundang teman-teman sekalian. Kami memutuskan untuk mengadakan acara pernikahan kami secara sederhana,

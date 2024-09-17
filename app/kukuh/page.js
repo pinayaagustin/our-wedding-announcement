@@ -3,13 +3,40 @@ import { motion } from 'framer-motion';
 import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import Envel from '../envel/page';
+import Envel from '../envel/envel';
 import '../globals.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeHigh, faVolumeXmark, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
 
 export default function Home() {
+
+    async function fetchData(setData) {
+        const response = await fetch('/api/komentar');
+        const data = await response.json();
+        setData(data);
+    }
+
+    const postComment = async (name, message) => {
+        try {
+            const response = await fetch('/api/komentar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, message }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to post comment');
+            }
+
+            return ('Comment posted successfully:');
+        } catch (error) {
+            console.error('Error posting comment:', error);
+        }
+    };
+
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(null);
     const [isOpen,setIsOpen] = useState(false)
@@ -26,6 +53,10 @@ export default function Home() {
                     setIsPlaying(false);
                 });
         }
+    }, []);
+
+    useEffect(() => {
+        fetchData(setMessages);
     }, []);
 
     const story = [
@@ -73,14 +104,18 @@ export default function Home() {
     const [messages, setMessages] = useState([]);
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
+    const [loading,setLoading] = useState(true);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async  (e) => {
         e.preventDefault();
         if (name && message) {
-            setMessages([...messages, { name, message }]);
-            setName('');
-            setMessage('');
+            setLoading(true)
+            await postComment(name,message)
+            await fetchData(setMessages);
+            setLoading(false)
         }
+        setName('');
+        setMessage('');
     };
     const vars = {
         open:{height:'100svh'},
@@ -308,9 +343,9 @@ export default function Home() {
                         })}
                     </motion.div>
                 </div>
-                <div className="snap-center min-h-svh flex flex-col w-full p-10 gap-10 bg-secondary items-center relative overflow-x-hidden">
-                    <form onSubmit={handleSubmit} className="space-y-4 w-full p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
-                        <h3 className="text-center font-semibold text-primary">Tulis Ucapan Disini</h3>
+                <div className="snap-center min-h-svh max-h-svh flex flex-col w-full p-10 gap-2 bg-secondary items-center relative overflow-x-hidden">
+                    <p className="text-center font-semibold text-primary">Tulis Ucapan Disini</p>
+                    <form onSubmit={handleSubmit} className="space-y-4 w-full sm:w-[50%] sm:p-8 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                         <div>
                             <label className="block text-left text-primary text-sm font-medium mb-2">Nama :</label>
                             <input
@@ -337,16 +372,20 @@ export default function Home() {
                         </div>
                     </form>
 
-                    <div className="flex-auto w-full p-4 bg-slate-300 shadow-md rounded-2xl overflow-y-auto">
-                        <h3 className="text-center font-semibold text-primary mb-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</h3>
-                        <div className="space-y-4">
+                    <p className="text-center font-semibold text-primary mt-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</p>
+
+                    <div className="flex-col w-full sm:w-[50%] items-center justify-center p-4 sm:p-8 bg-slate-300 shadow-md rounded-2xl overflow-y-scroll">
+                        {!loading ? 
+                        <div className="space-y-4 w-full flex flex-col h-full">
                             {messages.map((msg, index) => (
-                                <div key={index} className="p-4 bg-white rounded-md shadow-sm">
+                                <div key={index} className="p-4 bg-white rounded-md shadow-sm ">
                                     <p className="font-bold text-primary">{msg.name}</p>
                                     <p className="text-ray-600">{msg.message}</p>
                                 </div>
                             ))}
-                        </div>
+                        </div> : 
+                            <Image src="/spinner.gif" width={100} height={100} alt="Loading" className='m-auto' />
+                        }
                     </div>
                 </div>
             </div>
