@@ -104,7 +104,7 @@ export default function Home() {
     const [messages, setMessages] = useState([]);
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
-    const [loading,setLoading] = useState(true);
+    const [loading,setLoading] = useState(false);
 
     const handleSubmit = async  (e) => {
         e.preventDefault();
@@ -384,7 +384,7 @@ export default function Home() {
                                 </div>
                             ))}
                         </div> : 
-                            <Image src="/spinner.gif" width={100} height={100} alt="Loading" className='m-auto' />
+                            <Image src="/spinner.gif" unoptimized width={100} height={100} alt="Loading" className='m-auto' />
                         }
                     </div>
                 </div>
