@@ -31,9 +31,9 @@ export default function Home() {
     const story = [
         {
             id: 1,
-            image: '/1.jpeg',
-            description: 'Telah lahir anak kecil lucu imut hitam menyebalkan bernama Kukuh Iman Damaryanto',
-            date: 'Desember 1997'
+            image: '/our-story/4.jpg',
+            description: 'Cinta dan kasih sayang kami semakin lama semakin bertumbuh, kami memutuskan untuk menikah di penghujung tahun 2024',
+            date: 'Desember 2023'
         },
         {
             id: 2,
