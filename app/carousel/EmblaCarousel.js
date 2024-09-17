@@ -6,7 +6,7 @@ import Image from 'next/image';
 const TWEEN_FACTOR_BASE = 0.2
 
 const EmblaCarousel = (props) => {
-  const { slides, options } = props
+  const { slides, options, listImages } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
   const tweenFactor = useRef(0)
   const tweenNodes = useRef([])
@@ -74,19 +74,19 @@ const EmblaCarousel = (props) => {
   }, [emblaApi, tweenParallax, setTweenNodes, setTweenFactor])
 
   return (
-    <div className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <div className="embla h-full w-full flex items-center justify-center">
+      <div className="embla__viewport sm:h-[80%] h-[50%] w-full" ref={emblaRef}>
+        <div className="embla__container h-full w-full">
           {slides.map((index) => (
-            <div className="embla__slide" key={index}>
-              <div className="embla__parallax">
-                <div className="embla__parallax__layer">
+            <div className="embla__slide h-full w-full" key={index}>
+              <div className="embla__parallax h-full w-full">
+                <div className="embla__parallax__layer h-full w-full">
                   <Image
                     fill
                     sizes='1'
                     className="embla__slide__img embla__parallax__img object-contain"
-                    src={`/our-story/${index+1}.jpg`}
-                    alt="Your alt text"
+                    src={listImages[index]}
+                    alt={index+"_ourStory"}
                   />
                 </div>
               </div>

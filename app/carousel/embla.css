@@ -3,8 +3,16 @@
     margin: auto;
     --slide-height: 19rem;
     --slide-spacing: 1rem;
-    --slide-size: 50%;
+    --slide-size: 40%;
   }
+  @media (max-width: 640px) {
+    .embla {
+      --slide-height: 19rem;
+      --slide-spacing: 1rem;
+      --slide-size: 80%;
+    }
+  }
+
   .embla__viewport {
     overflow: hidden;
   }
