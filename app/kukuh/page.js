@@ -344,6 +344,9 @@ export default function Home() {
                     </motion.div>
                 </div>
                 <div className="snap-center min-h-svh max-h-svh flex flex-col w-full p-10 gap-2 bg-secondary items-center relative overflow-x-hidden">
+                    <motion.div className='absolute left-0 top-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
+                        <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
+                    </motion.div>
                     <p className="text-center font-semibold text-primary">Tulis Ucapan Disini</p>
                     <form onSubmit={handleSubmit} className="space-y-4 w-full sm:w-[50%] sm:p-8 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                         <div>

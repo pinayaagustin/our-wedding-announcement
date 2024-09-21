@@ -2,9 +2,9 @@
 import EmblaCarousel from './EmblaCarousel'
 
 const OPTIONS = { loop: true }
-const SLIDE_COUNT = 5
+const SLIDE_COUNT = 3
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
-const listImages=['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg','/our-story/4.jpg','/our-story/5.jpg']
+const listImages=['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
 
 import './embla.css'
 export default function Carousel(){
