@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image';
 
-const TWEEN_FACTOR_BASE = 1
+const TWEEN_FACTOR_BASE = 0.6
 
 const EmblaCarousel = (props) => {
   const { slides, options, listImages } = props
@@ -64,7 +64,7 @@ const EmblaCarousel = (props) => {
     setTweenNodes(emblaApi)
     setTweenFactor(emblaApi)
     tweenParallax(emblaApi)
-
+    emblaApi.scrollTo(1)
     emblaApi
       .on('reInit', setTweenNodes)
       .on('reInit', setTweenFactor)
@@ -84,7 +84,7 @@ const EmblaCarousel = (props) => {
                   <Image
                     fill
                     sizes='1'
-                    className="embla__slide__img embla__parallax__img object-contain"
+                    className="embla__slide__img embla__parallax__img object-contain select-none"
                     src={listImages[index]}
                     alt={index+"_ourStory"}
                   />

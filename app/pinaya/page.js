@@ -165,13 +165,14 @@ export default function Home() {
                 }}>
                     <Envel setOpenParent={setIsOpen} audioOn={toggleAudio}/>
                 </motion.div>
-            :
+            :<>
+            <Navbar/>
             <div className='overflow-y-scroll w-full h-svh snap-y snap-mandatory scroll-smooth'>
                 <div className='snap-center w-full h-svh flex flex-col justify-evenly gap-10 bg-primary text-secondary px-10 relative overflow-hidden'>
                     <motion.div className='absolute left-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
                         <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
                     </motion.div>
-                    <button onClick={toggleAudio} className="fixed top-4 right-4 sm:right-10 z-50 text-[#16878E]">
+                    <button onClick={toggleAudio} className="fixed top-8 right-4 sm:right-10 z-50 text-[#16878E]">
                         <FontAwesomeIcon icon={isPlaying ? faVolumeHigh : faVolumeXmark} size="sm" className="w-full" />
                     </button>
                     <motion.div className="sm:text-xl sm:w-1/2 sm:mx-auto text-sm font-bold text-center" initial="staggerHidden" variants={vars} whileInView="staggerVisible">
@@ -284,18 +285,18 @@ export default function Home() {
                                                     />
                                             </svg>
                                         </div>
-                                        <motion.div variants={childVars} className='flex flex-col items-center justify-center gap-4 w-full sm:w-[45%] sm:h-full'>
-                                            <p className='text-lg font-extrabold'>{data.date}</p>
-                                            <p className='text-sm text-justify'>{data.description}</p>
+                                        <motion.div variants={childVars} className='flex flex-col items-center justify-evenly gap-4 w-full sm:justify-evenly sm:w-[45%] sm:h-full'>
+                                            <p className='text-sm sm:text-lg font-extrabold'>{data.date}</p>
+                                            <p className='text-xs sm:text-sm text-justify'>{data.description}</p>
                                         </motion.div>
                                     </div>
                                 )
                             else {
                                 return (
                                     <div key={data.id} className='flex w-full sm:flex-col items-center justify-between gap-3'>
-                                        <motion.div variants={childVars} className='flex flex-col items-center justify-center gap-4 w-full sm:w-[45%] sm:h-full'>
-                                            <p className='text-lg font-extrabold'>{data.date}</p>
-                                            <p className='text-sm text-justify'>{data.description}</p>
+                                        <motion.div variants={childVars} className='flex flex-col items-center justify-evenly gap-4 w-full sm:justify-evenly sm:w-[45%] sm:h-full'>
+                                            <p className='text-sm sm:text-lg font-extrabold'>{data.date}</p>
+                                            <p className='text-xs sm:text-sm text-justify'>{data.description}</p>
                                         </motion.div>
                                         <div className='flex items-center justify-center w-6 sm:hidden sm:h-0 sm:w-0'>
                                             <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
@@ -344,8 +345,11 @@ export default function Home() {
                     </motion.div>
                 </div>
                 <div className="snap-center min-h-svh max-h-svh flex flex-col w-full p-10 gap-2 bg-secondary items-center relative overflow-x-hidden">
+                    <motion.div className='absolute left-0 top-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
+                        <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
+                    </motion.div>
                     <p className="text-center font-semibold text-primary">Tulis Ucapan Disini</p>
-                    <form onSubmit={handleSubmit} className="space-y-4 w-full sm:w-[50%] sm:p-8 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
+                    <form onSubmit={handleSubmit} className="space-y-4 w-full z-10 sm:w-[50%] sm:p-8 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                         <div>
                             <label className="block text-left text-primary text-sm font-medium mb-2">Nama :</label>
                             <input
@@ -372,9 +376,9 @@ export default function Home() {
                         </div>
                     </form>
 
-                    <p className="text-center font-semibold text-primary mt-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</p>
+                    <p className="text-center font-semibold text-primary z-10 mt-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</p>
 
-                    <div className="flex-col w-full sm:w-[50%] items-center justify-center p-4 sm:p-8 bg-slate-300 shadow-md rounded-2xl overflow-y-scroll">
+                    <div className="flex-col w-full sm:w-[50%] items-center z-10 justify-center p-4 sm:p-8 bg-slate-300 shadow-md rounded-2xl overflow-y-scroll">
                         {!loading ? 
                         <div className="space-y-4 w-full flex flex-col h-full">
                             {messages.map((msg, index) => (
@@ -389,6 +393,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            </>
             }
         </div>
     );
