@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import { Great_Vibes } from 'next/font/google';
+import { useEffect, useState } from 'react';
 const great = Great_Vibes({weight:['400'],subsets:['latin']})
 const Envelope = () => {
   const envelopeVariants = {
@@ -64,7 +64,7 @@ export default function Envel({setOpenParent,audioOn}) {
             className='z-10'>
             <Envelope />
           </motion.div>
-          <p className=' sm:text-lg text-sm text-center w-[50%] text-white drop-shadow-[0_5px_2px_rgba(0,0,0,0.6)]' > Ketuk pada gambar untuk melanjutkan </p>
+          <p className=' sm:text-lg text-sm text-center w-[50%] text-white drop-shadow-[0_5px_2px_rgba(0,0,0,0.6)]' > Click to continue </p>
         </motion.div>
       </motion.div>
       
