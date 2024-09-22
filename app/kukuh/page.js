@@ -1,15 +1,15 @@
 'use client'
+import { faAnglesDown, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import Envel from '../envel/envel';
 import '../globals.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faVolumeHigh, faVolumeXmark, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../navbar';
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
-import { useRouter } from 'next/navigation';
 
 export default function Home() {
     const router = useRouter();
