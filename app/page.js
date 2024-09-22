@@ -237,7 +237,7 @@ export default function Home() {
                                     </motion.span>
                                 ))}
                             </motion.p>
-                            <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="sm:text-3xl text-xl font-bold">
+                            <motion.p initial="staggerHidden" variants={vars} whileInView="staggerVisible"  className="sm:text-3xl text-xl font-bold z-50">
                                 {wrdTgl.map((word, index) => (
                                         <motion.span key={index} variants={childVars} className="inline-block mr-1">
                                         {word}
