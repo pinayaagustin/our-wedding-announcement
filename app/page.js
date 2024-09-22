@@ -1,17 +1,18 @@
 'use client'
+import { faAnglesDown, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import Envel from './envel/envel';
 import './globals.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faVolumeHigh, faVolumeXmark, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 import Navbar from './navbar';
+import Carousel from './carousel/page';
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
-import { useRouter } from 'next/navigation';
 
-export default function Index() {
+export default function Home() {
     const router = useRouter();
     async function fetchData(setData) {
         const response = await fetch('/api/komentar');
@@ -66,33 +67,41 @@ export default function Index() {
             id: 1,
             image: '/our-story/4.jpg',
             description: 'Pertemuan kami terjadi secara tak terduga melalui sebuah platform media sosial. Sebuah momen sederhana, namun dari sanalah cerita kami dimulai.',
-            date: 'Akhir 2022'
+            date: 'Akhir 2022',
+            listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
         },
         {
             id: 2,
             image: '/our-story/1.jpg',
             description: 'Setelah beberapa bulan saling mengenal dan menyelami hati satu sama lain, kami akhirnya mantap melangkah ke tahap yang lebih serius. Kami resmi menjadi pasangan kekasih, memulai perjalanan baru yang penuh harapan.',
-            date: 'Januari 2024'
+            date: 'Januari 2024',
+            listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
         },
         {
             id: 3,
             image: '/our-story/2.jpg',
             description: 'Dengan cinta yang semakin dalam, kami merasakan keyakinan penuh terhadap masa depan bersama. Kemudian sepakat menetapkan tujuan besar yaitu Menikah pada penghujung tahun 2024. Sebuah komitmen yang kami sambut dengan kebahagiaan dan keseriusan.',
-            date: 'Desember 2023'
+            date: 'Desember 2023',
+            listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
         },
         {
             id: 4,
             image: '/our-story/3.jpg',
             description: 'Di hadapan keluarga tercinta, kami menggelar acara lamaran yang penuh haru dan kebahagiaan. Momen ini menjadi simbol kuat akan keseriusan dan janji kami untuk melangkah ke jenjang pernikahan.',
-            date: '20 Juli 2024'
+            date: '20 Juli 2024',
+            listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
         },
         {
             id: 5,
             image: '/our-story/9.jpg',
             description: 'Langkah berikutnya membawa kami ke Kantor Urusan Agama (KUA), di mana kami secara resmi mendaftarkan pernikahan kami. Akad akan dilaksanakan di sana, sebuah peristiwa yang akan menjadi titik awal dari kehidupan kami sebagai suami istri.',
-            date: '20 September 2024'
+            date: '20 September 2024',
+            listImage:['/our-story/6.jpg','/our-story/7.jpg','/our-story/8.jpg']
         }
     ];
+
+    const [showModal,setShowModal] = useState(false)
+    const [listImages,setListImages] = useState([])
 
     const toggleAudio = () => {
         if (isPlaying) {
@@ -252,7 +261,10 @@ export default function Index() {
                                     return (
                                         <div key={data.id} className='flex w-full sm:flex-col items-center justify-between gap-3'>
                                             <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full'>
-                                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full' />
+                                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
+                                                    setShowModal(true)
+                                                    setListImages(data.listImage)
+                                                    }} />
                                             </motion.div>
                                             <div className='flex items-center justify-center w-6 sm:hidden sm:h-0 sm:w-0'>
                                                 <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
@@ -293,7 +305,7 @@ export default function Index() {
                                             </div>
                                             <motion.div variants={childVars} className='flex flex-col items-center justify-evenly gap-4 w-full sm:justify-evenly sm:w-[45%] sm:h-full'>
                                                 <p className='text-sm sm:text-lg font-extrabold'>{data.date}</p>
-                                                <p className='text-xs sm:text-sm text-justify'>{data.description}</p>
+                                                <p className='text-xs sm:text-sm text-left sm:text-justify'>{data.description}</p>
                                             </motion.div>
                                         </div>
                                     )
@@ -302,7 +314,7 @@ export default function Index() {
                                         <div key={data.id} className='flex w-full sm:flex-col items-center justify-between gap-3'>
                                             <motion.div variants={childVars} className='flex flex-col items-center justify-evenly gap-4 w-full sm:justify-evenly sm:w-[45%] sm:h-full'>
                                                 <p className='text-sm sm:text-lg font-extrabold'>{data.date}</p>
-                                                <p className='text-xs sm:text-sm text-justify'>{data.description}</p>
+                                                <p className='text-xs sm:text-sm text-right sm:text-justify'>{data.description}</p>
                                             </motion.div>
                                             <div className='flex items-center justify-center w-6 sm:hidden sm:h-0 sm:w-0'>
                                                 <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
@@ -342,7 +354,10 @@ export default function Index() {
                                                 </svg>
                                             </div>
                                             <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full'>
-                                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full' />
+                                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
+                                                    setShowModal(true)
+                                                    setListImages(data.listImage)
+                                                    }} />
                                             </motion.div>
                                         </div>
                                     )
@@ -399,6 +414,14 @@ export default function Index() {
                         </div>
                     </div>
                 </div>
+                {showModal && 
+                    <div className='fixed inset-0 bg-black bg-opacity-50 overflow-hidden h-svh w-svw z-50'>
+                        <div className='relative mx-auto w-[95%] shadow-lg '>
+                            <Carousel listImages={listImages} setShowModal={setShowModal}/>
+                        </div>
+
+                    </div>
+                }
             </div>
             }
         </div>

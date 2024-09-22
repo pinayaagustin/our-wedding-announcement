@@ -1,7 +1,4 @@
-import { useRouter } from "next/navigation";
-
 export default function Navbar({scrollToDivId}) {
-    const router = useRouter();
 
     return (
         <div className="sticky top-0 text-primary font-bold bg-[#fdffff] z-50 shadow-md flex justify-between px-5 py-1 sm:py-0 items-center text-xs sm:text-base">
