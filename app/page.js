@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import Envel from './envel/envel';
 import './globals.css';
 import Navbar from './navbar';
-import Carousel from './carousel/page';
+import Carousel from './carousel/carousel';
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
 
 export default function Home() {
