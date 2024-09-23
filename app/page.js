@@ -430,4 +430,4 @@ export default function Home() {
 
 
 // scroll snap align untuk memposisikan foto selalu berada di tengah.
-// footer yang
+// belum ada navbar
