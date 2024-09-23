@@ -6,10 +6,10 @@ import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
+import Carousel from './carousel/page';
 import Envel from './envel/envel';
 import './globals.css';
 import Navbar from './navbar';
-import Carousel from './carousel/page';
 const great = Great_Vibes({ weight: ['400'], subsets: ['latin'] })
 
 export default function Home() {
@@ -430,4 +430,4 @@ export default function Home() {
 
 
 // scroll snap align untuk memposisikan foto selalu berada di tengah.
-// belum ada navbar
+// footer yang
