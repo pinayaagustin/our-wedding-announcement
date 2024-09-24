@@ -191,10 +191,10 @@ export default function Home() {
                         <motion.div className='absolute left-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
                             <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
                         </motion.div>
-                        <button onClick={toggleAudio} className="fixed top-8 right-4 sm:right-10 z-50 text-[#16878E]">
+                        <button onClick={toggleAudio} className="fixed top-10 right-4 sm:right-10 z-50 text-[#16878E]">
                             <FontAwesomeIcon icon={isPlaying ? faVolumeHigh : faVolumeXmark} size="sm" className="w-full" />
                         </button>
-                        <motion.div className="sm:text-xl sm:w-1/2 sm:mx-auto text-sm font-bold text-center" initial="staggerHidden" variants={vars} whileInView="staggerVisible">
+                        <motion.div className="sm:text-xl sm:w-1/2 sm:mx-auto text-sm font-bold text-center mt-10" initial="staggerHidden" variants={vars} whileInView="staggerVisible">
                             {wrdDengan.map((word, index) => (
                                 <motion.span key={index} variants={childVars} className="inline-block mr-1">
                                 {word}
@@ -368,12 +368,12 @@ export default function Home() {
                             })}
                         </motion.div>
                     </div>
-                    <div id='post' className="snap-center min-h-svh max-h-svh flex flex-col w-full p-10 gap-2 bg-secondary items-center relative overflow-x-hidden">
+                    <div id='post' className="snap-center min-h-svh max-h-svh flex flex-col w-full pt-10 gap-2 bg-secondary items-center relative overflow-x-hidden">
                         <motion.div className='absolute left-0 top-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
                             <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
                         </motion.div>
                         <p className="text-center font-semibold text-primary">Tulis Ucapan Disini</p>
-                        <form onSubmit={handleSubmit} className="space-y-4 w-full z-10 sm:w-[50%] sm:p-8 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
+                        <form onSubmit={handleSubmit} className="space-y-4 w-[90%] z-10 sm:w-[50%] sm:p-8 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
                             <div>
                                 <label className="block text-left text-primary text-sm font-medium mb-2">Nama :</label>
                                 <input
@@ -402,7 +402,7 @@ export default function Home() {
 
                         <p className="text-center font-semibold text-primary z-10 mt-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</p>
 
-                        <div className="flex-col w-full sm:w-[50%] items-center z-10 justify-center p-4 sm:p-8 bg-slate-300 shadow-md rounded-2xl overflow-y-scroll">
+                        <div className="flex-col w-[90%] sm:w-[50%] items-center z-10 justify-center p-4 sm:p-8 bg-slate-300 shadow-md rounded-2xl overflow-y-scroll">
                             {!loading ? 
                             <div className="space-y-4 w-full flex flex-col h-full">
                                 {messages.map((msg, index) => (
@@ -415,6 +415,7 @@ export default function Home() {
                                 <Image src="/spinner.gif" unoptimized width={100} height={100} alt="Loading" className='m-auto' />
                             }
                         </div>
+                        <Footer/>
                     </div>
                 </div>
                 {showModal && 
@@ -428,10 +429,6 @@ export default function Home() {
                 
             </div>
             }
-            {/* </main> */}
-            
-
-            <Footer />
         </div>
     );
 }
