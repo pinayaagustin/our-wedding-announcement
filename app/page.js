@@ -1,4 +1,5 @@
 'use client'
+import Footer from '@/components/Footer';
 import { faAnglesDown, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
@@ -6,7 +7,7 @@ import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import Carousel from './carousel/page';
+import Carousel from './carousel/carousel';
 import Envel from './envel/envel';
 import './globals.css';
 import Navbar from './navbar';
@@ -182,6 +183,8 @@ export default function Home() {
                 </motion.div>
             :
             <div>
+
+                {/* <main className="flex flex-grow"> */}
                 <Navbar scrollToDivId={scrollToDivId}/>
                 <div className='overflow-y-scroll w-full h-svh snap-y snap-mandatory scroll-smooth'>
                     <div id='home' className='snap-center w-full h-svh flex flex-col justify-evenly gap-10 bg-primary text-secondary px-10 relative overflow-hidden'>
@@ -422,12 +425,16 @@ export default function Home() {
 
                     </div>
                 }
+                
             </div>
             }
+            {/* </main> */}
+            
+
+            <Footer />
         </div>
     );
 }
 
 
 // scroll snap align untuk memposisikan foto selalu berada di tengah.
-// belum ada navbar
