@@ -406,8 +406,8 @@ export default function Home() {
                             {!loading ? 
                             <div className="space-y-4 w-full flex flex-col h-full">
                                 {messages.map((msg, index) => (
-                                    <div key={index} className="p-4 bg-[#fdffff] bg-opacity-60 text-center rounded-md shadow-sm ">
-                                        <p className="font-bold text-primary">{msg.name}</p>
+                                    <div key={index} className="p-4 bg-[#fdffff] bg-opacity-50 text-center rounded-md shadow-sm ">
+                                        <p className="font-extrabold text-primary">{msg.name}</p>
                                         <p className="text-ray-600">{msg.message}</p>
                                     </div>
                                 ))}
