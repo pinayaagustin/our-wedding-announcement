@@ -68,14 +68,14 @@ export default function Home() {
             id: 1,
             image: '/our-story/4.jpg',
             description: 'Pertemuan kami terjadi secara tak terduga melalui sebuah platform media sosial. Sebuah momen sederhana, namun dari sanalah cerita kami dimulai.',
-            date: 'Akhir 2022',
+            date: '9 Desember 2022',
             listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
         },
         {
             id: 2,
-            image: '/our-story/7.jpg',
-            description: 'Setelah beberapa bulan saling mengenal dan menyelami hati satu sama lain, kami akhirnya mantap melangkah ke tahap yang lebih serius. Kami resmi menjadi pasangan kekasih, memulai perjalanan baru yang penuh harapan.',
-            date: 'Januari 2023',
+            image: '/our-story/77.jpg',
+            description: 'Setelah proses saling mengenal dan menyelami hati satu sama lain dalam waktu yang cukup singkat, kami akhirnya mantap melangkah ke tahap yang lebih serius. Kami resmi menjadi pasangan kekasih, memulai perjalanan baru yang penuh harapan.',
+            date: '19 Januari 2023',
             listImage:['/our-story/6.jpg','/our-story/8.jpg','/our-story/9.jpg']
         },
         {
@@ -87,7 +87,7 @@ export default function Home() {
         },
         {
             id: 4,
-            image: '/our-story/21.jpg',
+            image: '/our-story/22.jpg',
             description: 'Di hadapan keluarga tercinta, kami menggelar acara lamaran yang penuh haru dan kebahagiaan. Momen ini menjadi simbol kuat akan keseriusan dan janji kami untuk melangkah ke jenjang pernikahan.',
             date: '20 Juli 2024',
             listImage:['/our-story/18.jpg','/our-story/19.jpg','/our-story/20.jpg']
