@@ -73,21 +73,21 @@ export default function Home() {
         },
         {
             id: 2,
-            image: '/our-story/1.jpg',
+            image: '/our-story/25.jpg',
             description: 'Setelah beberapa bulan saling mengenal dan menyelami hati satu sama lain, kami akhirnya mantap melangkah ke tahap yang lebih serius. Kami resmi menjadi pasangan kekasih, memulai perjalanan baru yang penuh harapan.',
-            date: 'Januari 2024',
+            date: 'Januari 2023',
             listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
         },
         {
             id: 3,
-            image: '/our-story/2.jpg',
+            image: '/our-story/10.jpg',
             description: 'Dengan cinta yang semakin dalam, kami merasakan keyakinan penuh terhadap masa depan bersama. Kemudian sepakat menetapkan tujuan besar yaitu Menikah pada penghujung tahun 2024. Sebuah komitmen yang kami sambut dengan kebahagiaan dan keseriusan.',
             date: 'Desember 2023',
             listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
         },
         {
             id: 4,
-            image: '/our-story/3.jpg',
+            image: '/our-story/15.jpg',
             description: 'Di hadapan keluarga tercinta, kami menggelar acara lamaran yang penuh haru dan kebahagiaan. Momen ini menjadi simbol kuat akan keseriusan dan janji kami untuk melangkah ke jenjang pernikahan.',
             date: '20 Juli 2024',
             listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
