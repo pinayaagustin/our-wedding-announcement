@@ -372,8 +372,8 @@ export default function Home() {
                         <motion.div className='absolute left-0 top-0 z-0 h-[99.9%] w-[70%] opacity-15 pointer-events-none' whileInView='fadeUp' initial='fadeFromBottom' variants={vars} transition={{duration:1}}>
                             <Image src='/flowerBorderFade.webp' alt='flower' fill sizes='1' className='object-cover'/>
                         </motion.div>
-                        <p className="text-center font-semibold text-primary">Tulis Ucapan Disini</p>
-                        <form onSubmit={handleSubmit} className="space-y-4 w-[90%] z-10 sm:w-[50%] sm:p-8 p-4 bg-slate-300 shadow-md rounded-2xl relative custom-after">
+                        <p className="text-center text-sm font-semibold text-primary">Tulis Ucapan Disini</p>
+                        <form onSubmit={handleSubmit} className="space-y-4 w-[90%] z-10 sm:w-[50%] sm:p-8 p-4 relative custom-after">
                             <div>
                                 <label className="block text-left text-primary text-sm font-medium mb-2">Nama :</label>
                                 <input
@@ -393,20 +393,20 @@ export default function Home() {
                             </div>
 
                             <div className="flex justify-center">
-                                <button type="submit" className="text-center bg-slate-200 text-primary py-2 px-4 rounded-2xl hover:bg-slate-400 transition duration-300">Kirim</button>
+                                <button type="submit" className="text-center bg-slate-400 text-white py-2 px-4 hover:bg-primary ring-2 ring-slate-300 rounded-xl transition duration-300">Kirim</button>
                             </div>
                             <div className="sm:w-[15%] w-[50%] h-[50%] top-[20%] sm:-right-[8%] -right-[30%] absolute z-20">
                                 <Image src="/3.png" fill alt="Dekorasi" sizes='1' className="object-contain" />
                             </div>
                         </form>
 
-                        <p className="text-center font-semibold text-primary z-10 mt-4">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</p>
+                        <p className="text-center text-sm font-semibold text-primary z-10 mt-8">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</p>
 
-                        <div className="flex-col w-[90%] sm:w-[50%] items-center z-10 justify-center p-4 sm:p-8 bg-slate-300 shadow-md rounded-2xl overflow-y-scroll">
+                        <div className="flex-col w-[90%] sm:w-[50%] items-center z-10 justify-center p-4 sm:p-8 overflow-y-scroll">
                             {!loading ? 
                             <div className="space-y-4 w-full flex flex-col h-full">
                                 {messages.map((msg, index) => (
-                                    <div key={index} className="p-4 bg-white rounded-md shadow-sm ">
+                                    <div key={index} className="p-4 bg-[#fdffff] bg-opacity-60 text-center rounded-md shadow-sm ">
                                         <p className="font-bold text-primary">{msg.name}</p>
                                         <p className="text-ray-600">{msg.message}</p>
                                     </div>
