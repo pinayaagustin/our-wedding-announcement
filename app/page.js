@@ -94,10 +94,10 @@ export default function Home() {
         },
         {
             id: 5,
-            image: '/our-story/9.jpg',
+            image: '/our-story/4.jpg',
             description: 'Langkah berikutnya membawa kami ke Kantor Urusan Agama (KUA), di mana kami secara resmi mendaftarkan pernikahan kami. Akad akan dilaksanakan di sana, sebuah peristiwa yang akan menjadi titik awal dari kehidupan kami sebagai suami istri.',
             date: '20 September 2024',
-            listImage:['/our-story/6.jpg','/our-story/7.jpg','/our-story/8.jpg']
+            listImage:['/our-story/1.jpg','/our-story/2.jpg','/our-story/3.jpg']
         }
     ];
 
