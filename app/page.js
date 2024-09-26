@@ -393,7 +393,7 @@ export default function Home() {
                             </div>
 
                             <div className="flex justify-center">
-                                <button type="submit" className="text-center bg-slate-400 text-white py-2 px-4 hover:bg-primary ring-2 ring-slate-300 rounded-xl transition duration-300">Kirim</button>
+                                <button type="submit" className="text-center bg-primary/60 text-white py-2 px-4 hover:bg-primary ring-2 ring-slate-300 rounded-xl transition duration-300">Kirim</button>
                             </div>
                             <div className="sm:w-[15%] w-[50%] h-[50%] top-[20%] sm:-right-[8%] -right-[30%] absolute z-20">
                                 <Image src="/3.png" fill alt="Dekorasi" sizes='1' className="object-contain" />
