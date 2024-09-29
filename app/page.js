@@ -66,10 +66,10 @@ export default function Home() {
     const story = [
         {
             id: 1,
-            image: '/our-story/id111.jpg',
+            image: '/our-story/id11111.jpg',
             description: 'Pertemuan kami terjadi secara tak terduga melalui sebuah platform media sosial. Sebuah momen sederhana, namun dari sanalah cerita kami dimulai.',
             date: '9 Desember 2022',
-            listImage:['/our-story/id1111.jpg','/our-story/id11111.jpg','/our-story/id111111.jpg']
+            listImage:['/our-story/id1111.jpg','/our-story/id111.jpg','/our-story/id111111.jpg']
         },
         {
             id: 2,
