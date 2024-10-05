@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion';
+
 const Footer = () => {
     return (
-        <footer className="bg-primary z-50 shadow-md w-full text-secondary mt-2 text-xs sm:text-base font-semibold p-2">
+        <motion.div initial={{y:40,opacity:0}} whileInView={{y:0,opacity:1}} transition={{duration:1}} className="bg-primary z-50 shadow-md w-full text-secondary mt-2 text-xs sm:text-base font-semibold p-2">
             <div className="flex flex-col gap-2 items-center justify-center">
                 Wedding Announcement by : 
                 <div className="flex gap-5 items-evenly justify-center w-full">
@@ -22,7 +24,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </footer>
+        </motion.div>
     );
 };
 

@@ -264,10 +264,19 @@ export default function Home() {
                                     return (
                                         <div key={data.id} className='flex w-full sm:flex-col items-center justify-between gap-3'>
                                             <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full'>
-                                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
-                                                    setShowModal(true)
-                                                    setListImages(data.listImage)
+                                                {
+                                                    index == 0 ? 
+                                                    <motion.div initial={{scale:1}} animate={{scale:0.9}} transition={{duration:1.5,repeat:Infinity,repeatType:'reverse',ease:'easeInOut'}} className='w-full h-full relative'>
+                                                        <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
+                                                        setShowModal(true)
+                                                        setListImages(data.listImage)
+                                                        }} />
+                                                    </motion.div> : 
+                                                    <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
+                                                        setShowModal(true)
+                                                        setListImages(data.listImage)
                                                     }} />
+                                                }
                                             </motion.div>
                                             <div className='flex items-center justify-center w-6 sm:hidden sm:h-0 sm:w-0'>
                                                 <svg viewBox="399.4353 -2250.0011 277.5024 5000.001" className='w-full h-full'>
@@ -402,7 +411,7 @@ export default function Home() {
 
                         <p className="text-center text-sm font-semibold text-primary z-10 mt-8">Doa-doa dari kalian sangat berarti bagi kami, terima kasih!</p>
 
-                        <div className="flex-col w-[90%] sm:w-[50%] items-center z-10 justify-center p-4 sm:p-8 overflow-y-scroll">
+                        <div className="flex-col w-[90%] sm:w-[50%] items-center z-10 justify-center p-4 sm:p-8 overflow-y-scroll flex-grow">
                             {!loading ? 
                             <div className="space-y-4 w-full flex flex-col h-full">
                                 {messages.map((msg, index) => (
@@ -412,7 +421,9 @@ export default function Home() {
                                     </div>
                                 ))}
                             </div> : 
+                            <div className="space-y-4 w-full flex flex-col h-full">
                                 <Image src="/spinner.gif" unoptimized width={100} height={100} alt="Loading" className='m-auto' />
+                            </div>
                             }
                         </div>
                         <Footer/>
