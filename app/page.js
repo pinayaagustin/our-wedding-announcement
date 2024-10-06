@@ -113,6 +113,15 @@ export default function Home() {
         setIsPlaying(!isPlaying);
     };
 
+    const startAudio = () => {
+        audioRef.current.play();
+        setIsPlaying(true);
+    };
+
+    const stopAudio = () => {
+        audioRef.current.pause();
+    }
+
     const [messages, setMessages] = useState([]);
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
@@ -169,6 +178,8 @@ export default function Home() {
         router.push(`/#${id}`, undefined, { scroll: true })
     }
 
+    const [activate,setActivate] = useState(0);
+
     return (
         <div className="w-full h-svh overflow-hidden">
             <audio ref={audioRef} src="/music2.mp3" loop className="hidden"></audio>
@@ -179,7 +190,7 @@ export default function Home() {
                         setCompleteAnimation(true)
                     }
                 }}>
-                    <Envel setOpenParent={setIsOpen} audioOn={toggleAudio}/>
+                    <Envel setOpenParent={setIsOpen} audioOn={startAudio}/>
                 </motion.div>
             :
             <div>
@@ -263,18 +274,20 @@ export default function Home() {
                                 if (index % 2 == 0)
                                     return (
                                         <div key={data.id} className='flex w-full sm:flex-col items-center justify-between gap-3'>
-                                            <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full'>
+                                            <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full cursor-pointer'>
                                                 {
-                                                    index == 0 ? 
+                                                    index == activate ? 
                                                     <motion.div initial={{scale:1}} animate={{scale:0.9}} transition={{duration:1.5,repeat:Infinity,repeatType:'reverse',ease:'easeInOut'}} className='w-full h-full relative'>
                                                         <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
                                                         setShowModal(true)
                                                         setListImages(data.listImage)
+                                                        setActivate(index)
                                                         }} />
                                                     </motion.div> : 
                                                     <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
                                                         setShowModal(true)
                                                         setListImages(data.listImage)
+                                                        setActivate(index)
                                                     }} />
                                                 }
                                             </motion.div>
@@ -365,11 +378,22 @@ export default function Home() {
                                                         />
                                                 </svg>
                                             </div>
-                                            <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full'>
-                                                <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
-                                                    setShowModal(true)
-                                                    setListImages(data.listImage)
+                                            <motion.div variants={childVars} className='flex items-center justify-center w-full aspect-[4/4] relative sm:w-[45%] sm:h-full cursor-pointer'>
+                                                {
+                                                    index == activate ? 
+                                                    <motion.div initial={{scale:1}} animate={{scale:0.9}} transition={{duration:1.5,repeat:Infinity,repeatType:'reverse',ease:'easeInOut'}} className='w-full h-full relative'>
+                                                        <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
+                                                        setShowModal(true)
+                                                        setListImages(data.listImage)
+                                                        setActivate(index)
+                                                        }} />
+                                                    </motion.div> : 
+                                                    <Image alt={data.id} src={data.image} fill sizes='1' priority className='object-cover rounded-full hover:opacity-80' onClick={()=>{
+                                                        setShowModal(true)
+                                                        setListImages(data.listImage)
+                                                        setActivate(index)
                                                     }} />
+                                                }
                                             </motion.div>
                                         </div>
                                     )
@@ -432,7 +456,7 @@ export default function Home() {
                 {showModal && 
                     <div className='fixed inset-0 bg-black bg-opacity-50 overflow-hidden h-svh w-svw z-50'>
                         <div className='relative mx-auto w-[95%] shadow-lg '>
-                            <Carousel listImages={listImages} setShowModal={setShowModal}/>
+                            <Carousel listImages={listImages} setShowModal={setShowModal} setActivate={setActivate} activate={activate} lengthData={story.length}/>
                         </div>
 
                     </div>
