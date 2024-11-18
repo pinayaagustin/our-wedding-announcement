@@ -438,12 +438,12 @@ export default function Home() {
                         <div className="flex-col w-[90%] sm:w-[50%] items-center z-10 justify-center p-4 sm:p-8 overflow-y-scroll flex-grow">
                             {!loading ? 
                             <div className="space-y-4 w-full flex flex-col h-full">
-                                {/* {messages.map((msg, index) => (
+                                {messages.map((msg, index) => (
                                     <div key={index} className="p-4 bg-[#fdffff] bg-opacity-50 text-center rounded-md shadow-sm ">
                                         <p className="font-extrabold text-primary">{msg.name}</p>
                                         <p className="text-ray-600">{msg.message}</p>
                                     </div>
-                                ))} */}
+                                ))}
                             </div> : 
                             <div className="space-y-4 w-full flex flex-col h-full">
                                 <Image src="/spinner.gif" unoptimized width={100} height={100} alt="Loading" className='m-auto' />
